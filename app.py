@@ -2,9 +2,7 @@ from flask import *
 from flask import Flask, request, json, jsonify
 from flask_mysqldb import MySQL,MySQLdb
 import mysql.connector
-import keyring 
-pw= keyring.get_password("mysql","root")
-conn=mysql.connector.connect(host="localhost",password=pw, user="root", database="website",) 
+conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website",) 
 app=Flask(__name__)
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
