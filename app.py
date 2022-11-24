@@ -27,7 +27,7 @@ def attractions():
 	if keyword == None:
 		cur=conn.cursor(dictionary=True)
 		per_page=12 
-		page=request.args.get(get_page_parameter(),type=int, default=0)
+		page=request.args.get('page',type=int, default=0)
 		offset= page*per_page
 		next_page=page+1
 		cur.execute("SELECT * FROM data")
@@ -38,7 +38,7 @@ def attractions():
 	elif keyword != None:
 		cur=conn.cursor(dictionary=True)
 		per_page=12 
-		page=request.args.get(get_page_parameter(),type=int, default=0)
+		page=request.args.get('page',type=int, default=0)
 		offset= page*per_page
 		next_page=page+1
 		sql="SELECT *FROM data WHERE category=%s OR LOCATE(%s, name)>0 LIMIT %s  OFFSET %s"
