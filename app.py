@@ -1,8 +1,6 @@
 from flask import *
 from flask import Flask, request, json, jsonify
-from flask_paginate import Pagination, get_page_parameter
 from flask_mysqldb import MySQL,MySQLdb
-import requests
 import mysql.connector
 import keyring 
 pw= keyring.get_password("mysql","root")
