@@ -2,7 +2,7 @@ from flask import *
 from flask import Flask, request, json, jsonify
 from flask_mysqldb import MySQL,MySQLdb
 import mysql.connector
-conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website1",) 
+conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website",) 
 app=Flask(__name__)
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
@@ -34,6 +34,15 @@ def attractions():
 		total=cur.fetchall()
 		cur.execute("SELECT*FROM data LIMIT %s OFFSET %s", (per_page, offset,))
 		data=cur.fetchall()
+		t1= [t['images'] for t in data]
+		x=0
+		i=0
+		for x in range (len(t1)):
+			json_image=json.loads(t1[x])
+			x=x+1
+			for i in range (len(data)):
+				data[i]['images']= json_image
+				i=i+1
 		return jsonify({"nextPage":next_page, "data":data})
 	elif keyword != None:
 		cur=conn.cursor(dictionary=True)
@@ -46,6 +55,15 @@ def attractions():
 		cur.execute(sql, val)
 		row=cur.fetchall()
 		cur.close()
+		r1= [r['images'] for r in row]
+		x=0
+		i=0
+		for x in range (len(r1)):
+			json_r1=json.loads(r1[x])
+			x=x+1
+			for i in range (len(row)):
+				row[i]['images']=json_r1
+				i=i+1
 		return jsonify({"nextPage":next_page, "data":row})
 	else:
 		return jsonify({"error": True, "message":"Sever encountered an unexpected condition" })
@@ -59,7 +77,16 @@ def attractid(attractionId):
 	if get:
 		cur.execute("SELECT*FROM data WHERE id=%s",(attractionId,))
 		show=cur.fetchall()
-		return jsonify({"data":show})
+		s1= [s['images'] for s in show]
+		x=0
+		i=0
+		for x in range (len(s1)):
+			json_s1=json.loads(s1[x])
+			x=x+1
+			for i in range (len(show)):
+				show[i]['images']= json_s1
+				i=i+1
+		return ({"data":show})
 	elif get == None:
 		return jsonify({"error":True, "message":"Id Not Found"})
 	else:
@@ -70,8 +97,9 @@ def categories():
 	cur=conn.cursor()
 	cur.execute("SELECT category FROM data GROUP BY category")
 	cat=cur.fetchall()
+	cats=[x for xs in cat for x in xs]
 	if cat:
-		return jsonify({"data": cat})
+		return jsonify({"data": cats})
 	else:
 		return jsonify({"error":True, "message":"Sever Error"})
 
