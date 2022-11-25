@@ -2,7 +2,7 @@ from flask import *
 from flask import Flask, request, json, jsonify
 from flask_mysqldb import MySQL,MySQLdb
 import mysql.connector
-conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website",) 
+conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website1",) 
 app=Flask(__name__)
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
