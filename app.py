@@ -2,7 +2,7 @@ from flask import *
 from flask import Flask, request, json, jsonify
 from flask_mysqldb import MySQL,MySQLdb
 import mysql.connector
-conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website1",) 
+conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website",) 
 app=Flask(__name__)
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
@@ -39,10 +39,8 @@ def attractions():
 		i=0
 		for x in range (len(t1)):
 			json_image=json.loads(t1[x])
+			data[x]['images']= json_image
 			x=x+1
-			for i in range (len(data)):
-				data[i]['images']= json_image
-				i=i+1
 		return jsonify({"nextPage":next_page, "data":data})
 	elif keyword != None:
 		cur=conn.cursor(dictionary=True)
@@ -60,10 +58,8 @@ def attractions():
 		i=0
 		for x in range (len(r1)):
 			json_r1=json.loads(r1[x])
+			row[x]['images']=json_r1
 			x=x+1
-			for i in range (len(row)):
-				row[i]['images']=json_r1
-				i=i+1
 		return jsonify({"nextPage":next_page, "data":row})
 	else:
 		return jsonify({"error": True, "message":"Sever encountered an unexpected condition" })
@@ -82,10 +78,8 @@ def attractid(attractionId):
 		i=0
 		for x in range (len(s1)):
 			json_s1=json.loads(s1[x])
+			show[x]['images']= json_s1
 			x=x+1
-			for i in range (len(show)):
-				show[i]['images']= json_s1
-				i=i+1
 		return ({"data":show})
 	elif get == None:
 		return jsonify({"error":True, "message":"Id Not Found"})
