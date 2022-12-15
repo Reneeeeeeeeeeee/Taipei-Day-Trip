@@ -1,3 +1,4 @@
+    
 
     const first= fetch('/api/attractions?' + new URLSearchParams({
         page: 0,
@@ -7,6 +8,7 @@
         return response.json();
     }).then(function data(result){
         const output=result["data"];
+        console.log(output[0]['id']);
         let nextPage=result["nextPage"];
         history.pushState({'nextPage': nextPage},null);
         let detail= document.querySelectorAll('.detail');
@@ -14,6 +16,8 @@
         let detail2= document.querySelectorAll('.detail2');
         let name= document.querySelectorAll('.name');
         var img=document.querySelectorAll("#photo1");
+        var a= document.querySelectorAll('a');
+        //let a= document.createElement('a');
                 
         for(let i=0; i<output.length; i++){
             detail[i].textContent= output[i]['mrt'];
@@ -22,7 +26,16 @@
             detail2[i].appendChild(eletext)
             img[i].src=output[i]['images'][0];
             name[i].textContent= output[i]['name'];
-            name[i].appendChild(eletext)
+            name[i].appendChild(eletext);
+            const ID=output[i]['id'];
+            console.log(ID)
+            const link= "http://localhost:3000/attraction/"+ID;
+            console.log(link)
+            a[i].href=link
+            //mainphoto[i].onclick="window.location="+link;
+            //mainphoto[i].appendChild(a);
+
+            
         }
         console.log("first")
         console.log(history.state.nextPage)
@@ -71,7 +84,7 @@
         } )
     }
 
-
+    let debounceTimeout= null;
     var btn= document.getElementById("mybtn");
     btn.addEventListener('click', cData);
     document.addEventListener("DOMContentLoaded", test);
@@ -86,8 +99,8 @@
             rootMargin: "0px",
             threshold:0.25
         };
-        const observers= new IntersectionObserver(handleIntersection, options);
-        observers.observe(document.querySelector(".footer"));
+        const observer= new IntersectionObserver(handleIntersection, options);
+        observer.observe(document.querySelector(".footer"));
         firstData();
         console.log("THROUGH")
         
@@ -95,10 +108,12 @@
     };
 
     function handleIntersection(entries) {
+        
         if (search.value == '' && entries[0].isIntersecting) {
             console.warn("something is intersecting with the viewport");
 
             getData(); 
+            observer.unobserve(document.querySelector(".footer"));
             console.log("last")
         }
         if (search.value != '' && history.state.catesnextpage != "null" && entries[0].isIntersecting) {
@@ -106,12 +121,15 @@
             afterData()
             console.log(history.state.catesnextpage);
             console.log("last");    
+            observer.unobserve(document.querySelector(".footer"));
         }
+    
     }
 
 
+
     function firstData() { 
-        console.log("second") 
+        console.log("IM FIRSTDATA") 
             
         fetch('/api/attractions?' + new URLSearchParams({
             page: history.state.nextPage,
@@ -127,9 +145,19 @@
                 history.replaceState({'nextPage': nextPage},null);
                 
                 const main= document.querySelector(".main")
+                const a= document.createElement('a');
+                a.classList.add('a');
+                const ID= item.id;
+                console.log(ID)
+                const link= "http://localhost:3000/attraction/"+ID;
+                console.log(link)
+                a.href= link
+                main.append(a);
+
                 const mainphotos= document.createElement('div')
                 mainphotos.classList.add("mainphoto");
-                main.append(mainphotos);
+                a.append(mainphotos);
+                
 
                 const mainphoto= document.querySelector(".mainphoto")
                 let img= document.createElement('img');
@@ -159,6 +187,7 @@
                 detail2.classList.add("detail2");
                 content.appendChild(detail2);
                 
+
                 
             });
         
@@ -188,9 +217,18 @@
                 const nextPage=result.nextPage;
                 history.replaceState({'nextPage': nextPage},null)
                 const main= document.querySelector(".main")
+                const a= document.createElement('a');
+                a.classList.add('a');
+                const ID= item.id;
+                console.log(ID)
+                const link= "http://localhost:3000/attraction/"+ID;
+                console.log(link)
+                a.href= link
+                main.append(a);
+
                 const mainphotos= document.createElement('div')
                 mainphotos.classList.add("mainphoto");
-                main.append(mainphotos);
+                a.append(mainphotos);
 
                 const mainphoto= document.querySelector(".mainphoto")
                 let img= document.createElement('img');
@@ -252,9 +290,13 @@
                 let detail2= document.querySelectorAll('.detail2');
                 let name= document.querySelectorAll('.name');
                 var img=document.querySelectorAll("#photo1");
+                var a= document.querySelectorAll('a');
+                
+
                 
                 for(let i=0; i<showans.length; i++){
-                        mainphoto[i].style.display= ''
+                        a[i].style.display= '';
+                        //mainphoto[i].style.display= ''
                         detail[i].textContent= showans[i]["mrt"];
                         detail[i].appendChild(eletext);
                         detail2[i].textContent= showans[i]['category'];
@@ -262,12 +304,19 @@
                         img[i].src=showans[i]['images'][0];
                         name[i].textContent= showans[i]['name'];
                         name[i].appendChild(eletext);
-                        mainphoto[i].style.visibility='visible';
+                        const ID=showans[i]['id'];
+                        console.log(ID)
+                        const link= "http://localhost:3000/attraction/"+ID;
+                        console.log(link)
+                        a[i].href=link
+                        //mainphoto[i].style.visibility='visible';
+                        a[i].style.visibility='visible';
                         
                         
                     }
-                for(let j=showans.length; ;j++){
-                    mainphoto[j].style.display= 'none'
+                for(let j=showans.length;  ;j++){
+                    //mainphoto[j].style.display= 'none';
+                    a[j].style.display='none';
                     //console.log(mainphoto[j])
                 }   
             }
@@ -277,9 +326,11 @@
                 let detail2= document.querySelectorAll('.detail2');
                 let name= document.querySelectorAll('.name');
                 var img=document.querySelectorAll("#photo1");
+                var a= document.querySelectorAll('a');
                 
                 for(let i=0; i<showans.length; i++){
-                        mainphoto[i].style.display= ''
+                        a[i].style.display= '';
+                        //mainphoto[i].style.display= ''
                         detail[i].textContent= showans[i]["mrt"];
                         detail[i].appendChild(eletext);
                         detail2[i].textContent= showans[i]['category'];
@@ -287,11 +338,18 @@
                         img[i].src=showans[i]['images'][0];
                         name[i].textContent= showans[i]['name'];
                         name[i].appendChild(eletext);
-                        mainphoto[i].style.visibility='visible';     
+                        const ID=showans[i]['id'];
+                        console.log(ID)
+                        const link= "http://localhost:3000/attraction/"+ID;
+                        console.log(link)
+                        a[i].href=link
+                        //mainphoto[i].style.visibility='visible';
+                        a[i].style.visibility='visible';     
                         
                     }
                 for(let x=showans.length;  ; x++){
-                    mainphoto[x].style.display= 'none';
+                    //mainphoto[x].style.display= 'none';
+                    a[x].style.display='none';
                 }
                
             }     
@@ -320,9 +378,18 @@
                 history.replaceState({'catesnextpage':nextPage},null);
                 console.log(history.state.catesnextpage)
                 const main= document.querySelector(".main")
+                const a= document.createElement('a');
+                a.classList.add('a');
+                const ID= item.id;
+                console.log(ID)
+                const link= "http://localhost:3000/attraction/"+ID;
+                console.log(link)
+                a.href= link
+                main.append(a);
+            
                 const mainphotos= document.createElement('div')
                 mainphotos.classList.add("mainphoto");
-                main.append(mainphotos);
+                a.append(mainphotos);
     
                 const mainphoto= document.querySelector(".mainphoto")
                 let img= document.createElement('img');

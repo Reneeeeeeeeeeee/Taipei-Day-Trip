@@ -2,7 +2,7 @@ from flask import *
 from flask import Flask, request, json, jsonify
 from flask_mysqldb import MySQL,MySQLdb
 import mysql.connector
-conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website1",) 
+conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website",) 
 app=Flask(__name__ ,static_url_path='/Users/renee/Desktop/taipei-day-trip/static', )
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
@@ -77,12 +77,12 @@ def attractid(attractionId):
 	cur=conn.cursor(dictionary=True)
 	cur.execute("SELECT*FROM data WHERE id=%s",(attractionId,))
 	get=cur.fetchone()
-	cur.close()
-	print(get)
+	#print(get)
 	if get:
 		cur.execute("SELECT*FROM data WHERE id=%s",(attractionId,))
 		show=cur.fetchall()
 		s1= [s['images'] for s in show]
+		#print(s1)
 		x=0
 		i=0
 		for x in range (len(s1)):
@@ -106,5 +106,10 @@ def categories():
 		return jsonify({"data": cats})
 	else:
 		return jsonify({"error":True, "message":"Sever Error"})
+
+#@app.route("api/user", methods=["POST"])
+#def register():
+	#if 'name' in request.form and 'username' in request.form and 'password' in request.form :
+
 
 app.run(port=3000, host="0.0.0.0")
