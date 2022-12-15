@@ -93,6 +93,7 @@ a{
 }
 #photo{
     width: 100%;
+    object-fit: cover;
     position: relative;
    
 }
@@ -319,6 +320,9 @@ a{
     }
 }
 @media(max-width:600px) {
+    #photo{
+       
+    }
     .main{
         grid-template-columns: repeat(1, 321px);
         grid-template-rows: repeat(12, 280px);
