@@ -1,0 +1,503 @@
+html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+.footer{
+    display: flex;
+    background-color: #757575;  
+    font-size: 16px;
+    color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    height: 104px;
+    margin-bottom: 0px;
+}
+
+.frame{
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    height: 54px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+
+}
+.headline{
+    display: flex;
+    width: 1200px;
+}
+
+.left{
+    flex: none;
+    width: 150px;
+    font-size: 30px;
+    font-style: Bold;
+    color: #448899;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-content: flex-start;
+}
+
+.desktop-menu{
+    display:flex;  
+    flex: auto; 
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+.item1{
+    text-align: right;
+    width: 100px;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: medium;
+    color: #666666;
+    margin-right: 5px;
+  
+    
+     
+}
+.item2{
+    text-align: right;
+    width: 100px;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: medium;
+    color: #666666;
+    
+
+    
+}
+.top{
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+.topinfo{
+    width: 1170px;
+    height: 406px;
+    align-items: center;
+    margin-top: 91px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    
+}
+.div{
+    width: 540px;
+    margin: auto;
+    position: relative;
+    
+}
+.photo{
+    width: 540px;
+    height: 406px;
+    vertical-align: bottom;
+    
+}
+.dote{
+    position: absolute;
+    width: 540px;
+    bottom: 13px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-self: center;
+    vertical-align: middle;
+    
+
+    
+    
+}
+.dote>span{
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    margin: 2px;
+    
+
+    
+}
+span[class^="jian"]{
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    margin: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    line-height: 36px;
+    color: white;
+}
+.jianleft{3
+    left: 0;
+}
+.jianright {
+    right: 0;
+}
+#right{
+    width: 600px;
+    height: 406px;
+}
+.name{
+    width: 600px;
+    height: 33px;
+    text-align: left;
+    font-size: 24px;
+    color: #666666;
+    margin-top: 0px;
+}
+.place{
+    width: 600px;
+    height: 22px;
+    text-align: left;
+    font-size: 16px;
+    color: #666666;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    
+}
+.booking{
+    width: 600px;
+    height: 302px;
+    background-color: #E8E8E8;
+    border-radius: 5px;
+    
+}
+.text{
+    width: 560px;
+    height: 22px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+    background-color: #E8E8E8;
+    justify-items: center;
+    text-align: left;
+    padding-top: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+}
+.text1{
+    width: 560px;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+    justify-items: center;
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.insert{
+    width: 279px;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 301px;
+}
+.text2{
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+    width: 81px;
+    height: 17px;
+    vertical-align: middle;
+    margin-top: 9px;
+    margin-bottom: 9px;
+   
+   
+}
+.date{
+    width: 193px;
+    height: 35px;
+    font-size: 16px;
+    color: #000000;
+    vertical-align: middle;
+    
+}
+.choose{
+    width: 257px;
+    height: 22px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 323px;
+}
+.text3{
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+    width: 81px;
+    height: 22px;
+}
+.btn1{
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin-left: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.text4{
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+    width: 48px;
+    height: 14px;
+    margin-left: 6px;
+}
+.btn2{
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin-left: 18px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    
+}
+.text5{
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+    width: 48px;
+    height: 14px;
+    margin-left: 4px;
+}
+.cost{
+    display: flex;
+    justify-content: space-between;
+    width: 194px;
+    height: 22px;
+    margin-top: 15px;
+    margin-right: 386px;
+    margin-left: 20px;
+}
+.text6{
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+    width: 81px;
+    height: 22px;
+}
+.text7{
+    width: 108px;
+    height: 14px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #666666;
+    margin-left: 5px;
+}
+.btn3{
+    width: 154px;
+    height: 36px;
+    background-color: #448899;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 41px;
+    margin-right: 426px;
+    font-size: 19px;
+    color: #FFFFFF;
+    text-align: center;
+    vertical-align: middle;
+}
+hr{
+    height: 1px;
+    margin-top: 37px;
+}
+.info{
+    width: 1180px;
+    height: fit-content;
+    align-items: center;
+    color: #666666;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+.text8{
+    width: 1180px;
+    height: 32px;
+    align-items: center;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+.address{
+    width: 1180px;
+    height: 24px;
+    align-items: center;
+    margin-top: 0px;
+    font-size: 16px;
+    color: #666666;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.text9{
+    width: 1180px;
+    height: 32px;
+    align-items: center;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+.transport{
+    width: 1180px;
+    height: 48px;
+    align-items: center;
+    margin-top: 0px;
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+@media(max-width:1920px) {
+    
+}
+
+@media (max-width:600px) {
+    .headline{
+        width: 360px;
+    }
+    .desktop-menu{
+        width: 84px;
+    }
+    .topinfo{
+        display: grid;
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 350px 20px 33px 15px 22px 20px 300px;
+    }
+    .photo{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        height: 350px;
+        width: 360px;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .div{
+        width: 360px;
+    }
+    .dote{
+        width: 360px;
+    }
+    #right{
+        width: 340px;
+        height: 390px;
+        grid-row-start: 2;
+        grid-row-end: 8;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .name{
+        grid-row-start: 3;
+        grid-row-end: 4;
+        width: 340px;
+        height: 33px;
+        margin-left: auto;
+        margin-right: auto;
+        
+
+    }
+    .place{
+        grid-row-start: 5;
+        grid-row-end: 6;
+        width: 340px;
+        height: 22px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .booking{
+        grid-row-start: 7;
+        grid-row-end: 8;
+        width: 340px;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0px;
+    }
+    .text{
+        width: 300px;
+        height: 22px;
+
+    }
+    .text1{
+        width: 300px;
+        height: 48px;
+    }
+    hr{ 
+        height: 1px;
+        width: 340px;
+        margin-top: 357px;
+    }
+    .info{
+        width: 330px;
+        height: fit-content;
+    }
+    .text8{
+        width: 330px;
+        height: 32px;
+    }
+    .address{
+        width: 330px;
+        height: 24px;
+    }
+    .text9{
+        width: 330px;
+        height: 32px;
+    }
+    .transport{
+        width: 330px;
+        height: 144px;
+    }
+
+
+}
