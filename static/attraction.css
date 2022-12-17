@@ -154,7 +154,7 @@ span[class^="jian"]{
     line-height: 36px;
     color: white;
 }
-.jianleft{3
+.jianleft{
     left: 0;
 }
 .jianright {
@@ -441,7 +441,7 @@ hr{
         grid-row-start: 3;
         grid-row-end: 4;
         width: 340px;
-        height: 33px;
+        height: fit-content;
         margin-left: auto;
         margin-right: auto;
         
@@ -496,7 +496,7 @@ hr{
     }
     .transport{
         width: 330px;
-        height: 144px;
+        height: fit-content;
     }
 
 
