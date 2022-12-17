@@ -29,13 +29,14 @@
             name[i].appendChild(eletext);
             const ID=output[i]['id'];
             console.log(ID)
-            const link= "http://localhost:3000/attraction/"+ID;
+            const link= "http://18.221.31.109:3000/attraction/"+ID;
             console.log(link)
             a[i].href=link
             //mainphoto[i].onclick="window.location="+link;
             //mainphoto[i].appendChild(a);
 
-            
+           
+
         }
         console.log("first")
         console.log(history.state.nextPage)
@@ -149,7 +150,7 @@
                 a.classList.add('a');
                 const ID= item.id;
                 console.log(ID)
-                const link= "http://localhost:3000/attraction/"+ID;
+                const link= "http://18.221.31.109:3000/attraction/"+ID;
                 console.log(link)
                 a.href= link
                 main.append(a);
@@ -221,7 +222,7 @@
                 a.classList.add('a');
                 const ID= item.id;
                 console.log(ID)
-                const link= "http://localhost:3000/attraction/"+ID;
+                const link= "http://18.221.31.109:3000/attraction/"+ID;
                 console.log(link)
                 a.href= link
                 main.append(a);
@@ -306,7 +307,7 @@
                         name[i].appendChild(eletext);
                         const ID=showans[i]['id'];
                         console.log(ID)
-                        const link= "http://localhost:3000/attraction/"+ID;
+                        const link= "http://18.221.31.109:3000/attraction/"+ID;
                         console.log(link)
                         a[i].href=link
                         //mainphoto[i].style.visibility='visible';
@@ -340,7 +341,7 @@
                         name[i].appendChild(eletext);
                         const ID=showans[i]['id'];
                         console.log(ID)
-                        const link= "http://localhost:3000/attraction/"+ID;
+                        const link= "http://18.221.31.109:3000/attraction/"+ID;
                         console.log(link)
                         a[i].href=link
                         //mainphoto[i].style.visibility='visible';
@@ -382,7 +383,7 @@
                 a.classList.add('a');
                 const ID= item.id;
                 console.log(ID)
-                const link= "http://localhost:3000/attraction/"+ID;
+                const link= "http://18.221.31.109:3000/attraction/"+ID;
                 console.log(link)
                 a.href= link
                 main.append(a);
