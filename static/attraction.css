@@ -404,6 +404,15 @@ hr{
 }
 
 @media (max-width:600px) {
+    
+    body{
+        overflow-x: hidden;
+        max-width: 600px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        
+    }
     .frame{
         max-width: 600px;
         margin: 0;
@@ -419,6 +428,7 @@ hr{
     }
     .topinfo{
         max-width: 600px;
+        margin-right: 0px;
         display: grid;
         text-align: center;
         grid-template-columns: 1fr;
@@ -483,6 +493,18 @@ hr{
         width: 300px;
         height: 48px;
     }
+    .insert{
+        margin-right: 41px;
+    }
+    .choose{
+        margin-right: 63px;
+    }
+    .cost{
+        margin-right: 126px;
+    }
+    .btn3{
+        margin-right: 166px;
+    }
     hr{ 
         height: 1px;
         width: 340px;
@@ -507,6 +529,9 @@ hr{
     .transport{
         width: 330px;
         height: fit-content;
+    }
+    .footer{
+        max-width: 600px;
     }
 
 
