@@ -242,6 +242,7 @@ span[class^="jian"]{
     font-size: 16px;
     color: #000000;
     vertical-align: middle;
+    border-width: 0px;
     
 }
 .choose{
@@ -330,6 +331,7 @@ span[class^="jian"]{
     color: #FFFFFF;
     text-align: center;
     vertical-align: middle;
+    border-width: 0px;
 }
 hr{
     height: 1px;
@@ -402,13 +404,21 @@ hr{
 }
 
 @media (max-width:600px) {
+    .frame{
+        max-width: 600px;
+        margin: 0;
+    }
     .headline{
         width: 360px;
+    }
+    .top{
+        max-width: 600px;
     }
     .desktop-menu{
         width: 84px;
     }
     .topinfo{
+        max-width: 600px;
         display: grid;
         text-align: center;
         grid-template-columns: 1fr;
