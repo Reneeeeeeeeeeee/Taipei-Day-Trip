@@ -59,6 +59,8 @@ body{
     justify-content: flex-end;
     align-items: center;
     padding-right: 10px;
+   
+    
     
 }
 .item1{
@@ -80,6 +82,7 @@ body{
     font-weight: bold;
     font-style: medium;
     color: #666666;
+   
     
 
     
@@ -419,10 +422,10 @@ hr{
         margin: 0;
     }
     .headline{
-        width: 100%;
+        max-width: 910px;
     }
     .top{
-        
+        max-width: 920px;
         width: 100%;
     }
     .desktop-menu{
@@ -430,7 +433,7 @@ hr{
     }
     .topinfo{
         width: 100%;
-        
+        max-width: 920px;
         margin-right: 0px;
         display: grid;
         text-align: center;
@@ -511,28 +514,32 @@ hr{
         
     }
     .info{
-        width: 100%;
-        margin-left: 10px;
-        margin-right: 10px;
+        width: 750px;
+        margin-left: auto;
+        margin-right: auto;
 
     }
     .text8{
         width: 100%;
+        max-width: 920px;
         margin-left: 10px;
         margin-right: 10px;
     }
     .address{
         width: 100%;
+        max-width: 920px;
         margin-left: 10px;
         margin-right: 10px;
     }
     .text9{
         width: 100%;
+        max-width: 920px;
         margin-left: 10px;
         margin-right: 10px;
     }
     .transport{
         width: 100%;
+        max-width: 920px;
         margin-left: 10px;
         margin-right: 10px;
         height: fit-content;
@@ -656,22 +663,32 @@ hr{
     .info{
         width: 330px;
         height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
     .text8{
         width: 330px;
         height: 32px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .address{
         width: 330px;
         height: 24px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .text9{
         width: 330px;
         height: 32px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .transport{
         width: 330px;
         height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
     .footer{
         max-width: 600px;
