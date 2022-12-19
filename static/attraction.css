@@ -623,26 +623,26 @@ hr{
     .text8{
         width: 100%;
         max-width: 750px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .address{
         width: 100%;
         max-width: 750px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .text9{
         width: 100%;
         max-width: 750px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .transport{
         width: 100%;
         max-width: 750px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: auto;
+        margin-right: auto;
         height: fit-content;
     }
     .footer{
