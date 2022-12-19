@@ -33,6 +33,7 @@ body{
     margin-right: auto;
     left: 0;
     right: 0;
+   
 
 }
 .headline{
@@ -57,6 +58,7 @@ body{
     flex: auto; 
     justify-content: flex-end;
     align-items: center;
+    padding-right: 10px;
     
 }
 .item1{
@@ -92,6 +94,9 @@ body{
     margin-right: auto;
     left: 0;
     right: 0;
+    
+    
+    
 }
 .topinfo{
     width: 1170px;
@@ -102,6 +107,7 @@ body{
     justify-content: space-between;
     position: relative;
     
+   
 }
 .div{
     width: 540px;
@@ -336,6 +342,7 @@ span[class^="jian"]{
 hr{
     height: 1px;
     margin-top: 37px;
+    width: 100%;
 }
 .info{
     width: 1180px;
@@ -374,7 +381,7 @@ hr{
     
 }
 .text9{
-    width: 1180px;
+    width: 1180PX;
     height: 32px;
     align-items: center;
     margin-top: 20px;
@@ -384,6 +391,7 @@ hr{
     color: #666666;
     margin-left: auto;
     margin-right: auto;
+   
     
 
 }
@@ -399,7 +407,139 @@ hr{
     margin-right: auto;
     
 }
-@media(max-width:1920px) {
+@media(max-width:920px) {
+    body{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        
+    }
+    .frame{
+        width: 100%;
+        margin: 0;
+    }
+    .headline{
+        width: 100%;
+    }
+    .top{
+        
+        width: 100%;
+    }
+    .desktop-menu{
+        width: 84px;
+    }
+    .topinfo{
+        width: 100%;
+        
+        margin-right: 0px;
+        display: grid;
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 406px 20px 33px 15px 22px 20px 300px;
+    }
+    .photo{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        height: 406px;
+        width:540px;
+        
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  
+    
+    #right{
+        width: 600px;
+        height: 406px;
+        grid-row-start: 3;
+        grid-row-end: 8;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    .name{
+        grid-row-start: 3;
+        grid-row-end: 4;
+
+        margin-left: auto;
+        margin-right: auto;
+        
+
+    }
+    .place{
+        grid-row-start: 5;
+        grid-row-end: 6;
+       
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .booking{
+        grid-row-start: 7;
+        grid-row-end: 8;
+        width: 600px;
+        height: 302px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0px;
+    }
+    .text{
+        width: 300px;
+        height: 22px;
+
+    }
+    .text1{
+        width: 300px;
+        height: 48px;
+    }
+    .insert{
+        margin-right: 41px;
+    }
+    .choose{
+        margin-right: 63px;
+    }
+    .cost{
+        margin-right: 126px;
+    }
+    .btn3{
+        margin-right: 166px;
+    }
+    hr{ 
+        height: 1px;
+        width: 100%;
+        margin-top: 450px;
+        
+    }
+    .info{
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+    .text8{
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .address{
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .text9{
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .transport{
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+        height: fit-content;
+    }
+    .footer{
+        max-width: 920px;
+    }
     
 }
 
@@ -536,6 +676,6 @@ hr{
     .footer{
         max-width: 600px;
     }
-
+    
 
 }
