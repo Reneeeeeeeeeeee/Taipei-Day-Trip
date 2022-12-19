@@ -410,6 +410,104 @@ hr{
     margin-right: auto;
     
 }
+@media(max-width:1024px) {
+
+    body{ 
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        
+    }
+    .frame{
+        max-width: 1024px;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .headline{
+        width: 1009px;
+        margin-left: 0;
+        margin-right: 0;
+       
+    }
+    .topinfo{
+        width: 100%;
+        max-width: 994px;
+       
+       
+        display: flex;
+    }
+    .top{
+        max-width: 1024px;
+    }
+    #right{
+        
+        max-width: 420px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .name{
+        max-width: 420px;
+    }
+    .place{
+        max-width: 420px;
+    }
+    .booking{
+        max-width: 420px;
+    }
+    .text{
+        max-width: 400px;
+        margin-right: 0;
+     
+    }
+    .text1{
+        max-width: 400px;
+    }
+    .insert{
+        margin-right: auto;
+    }
+    .choose{
+        margin-right: auto;
+    }
+    .cost{
+        margin-right: auto;
+    }
+    .btn3{
+        margin-right: auto;
+    }
+    .info{
+        width: 996px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+    .text8{
+        width: 100%;
+        max-width: 996px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .address{
+        width: 100%;
+        max-width: 996px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .text9{
+        width: 100%;
+        max-width: 996px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .transport{
+        width: 100%;
+        max-width: 996px;
+        margin-left: 10px;
+        margin-right: 10px;
+        height: fit-content;
+    }
+}
+
 @media(max-width:920px) {
     body{
         width: 100%;
@@ -470,6 +568,9 @@ hr{
         
 
     }
+    hr{
+        max-width: 920px;
+    }
     .place{
         grid-row-start: 5;
         grid-row-end: 6;
@@ -521,25 +622,25 @@ hr{
     }
     .text8{
         width: 100%;
-        max-width: 920px;
+        max-width: 750px;
         margin-left: 10px;
         margin-right: 10px;
     }
     .address{
         width: 100%;
-        max-width: 920px;
+        max-width: 750px;
         margin-left: 10px;
         margin-right: 10px;
     }
     .text9{
         width: 100%;
-        max-width: 920px;
+        max-width: 750px;
         margin-left: 10px;
         margin-right: 10px;
     }
     .transport{
         width: 100%;
-        max-width: 920px;
+        max-width: 750px;
         margin-left: 10px;
         margin-right: 10px;
         height: fit-content;
