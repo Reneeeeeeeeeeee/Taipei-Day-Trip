@@ -121,6 +121,7 @@ body{
 .photo{
     width: 540px;
     height: 406px;
+    object-fit: cover;
     vertical-align: bottom;
     
 }
@@ -262,6 +263,7 @@ span[class^="jian"]{
     margin-top: 15px;
     margin-left: 20px;
     margin-right: 323px;
+
 }
 .text3{
     font-size: 16px;
@@ -277,6 +279,11 @@ span[class^="jian"]{
     margin-left: 12px;
     margin-top: 2px;
     margin-bottom: 2px;
+    border-color: white;
+    background-color: #FFFFFF;
+    border-style: solid;
+    
+    
 }
 .text4{
     font-size: 16px;
@@ -293,6 +300,10 @@ span[class^="jian"]{
     margin-left: 18px;
     margin-top: 2px;
     margin-bottom: 2px;
+    border-color: white;
+    background-color: #FFFFFF;
+    border-style: solid;
+    
     
 }
 .text5{
@@ -346,6 +357,7 @@ hr{
     height: 1px;
     margin-top: 37px;
     width: 100%;
+    max-width: 1200px;
 }
 .info{
     width: 1180px;
@@ -475,6 +487,9 @@ hr{
     .btn3{
         margin-right: auto;
     }
+    hr{
+        max-width: 1012px;
+    }
     .info{
         width: 996px;
         margin-left: 10px;
@@ -568,9 +583,7 @@ hr{
         
 
     }
-    hr{
-        max-width: 920px;
-    }
+    
     .place{
         grid-row-start: 5;
         grid-row-end: 6;
@@ -611,6 +624,7 @@ hr{
     hr{ 
         height: 1px;
         width: 100%;
+        max-width: 750px;
         margin-top: 450px;
         
     }
