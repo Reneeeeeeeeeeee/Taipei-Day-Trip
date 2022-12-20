@@ -102,7 +102,7 @@ body{
     
 }
 .topinfo{
-    width: 1170px;
+    max-width: 1170px;
     height: 406px;
     align-items: center;
     margin-top: 91px;
@@ -171,11 +171,12 @@ span[class^="jian"]{
     right: 0;
 }
 #right{
-    width: 600px;
+    max-width: 600px;
     height: 406px;
+    padding-left: 15px;
 }
 .name{
-    width: 600px;
+    max-width: 600px;
     height: 33px;
     text-align: left;
     font-size: 24px;
@@ -183,7 +184,7 @@ span[class^="jian"]{
     margin-top: 0px;
 }
 .place{
-    width: 600px;
+    max-width: 600px;
     height: 22px;
     text-align: left;
     font-size: 16px;
@@ -193,7 +194,7 @@ span[class^="jian"]{
     
 }
 .booking{
-    width: 600px;
+    max-width: 600px;
     height: 302px;
     background-color: #E8E8E8;
     border-radius: 5px;
@@ -210,7 +211,7 @@ span[class^="jian"]{
     text-align: left;
     padding-top: 15px;
     margin-left: 20px;
-    margin-right: 20px;
+   
     
 }
 .text1{
@@ -223,7 +224,7 @@ span[class^="jian"]{
     text-align: left;
     margin-top: 15px;
     margin-left: 20px;
-    margin-right: 20px;
+  
 }
 .insert{
     width: 279px;
@@ -232,7 +233,7 @@ span[class^="jian"]{
     justify-content: space-between;
     margin-top: 15px;
     margin-left: 20px;
-    margin-right: 301px;
+    
 }
 .text2{
     font-size: 16px;
@@ -262,7 +263,7 @@ span[class^="jian"]{
     justify-content: space-between;
     margin-top: 15px;
     margin-left: 20px;
-    margin-right: 323px;
+   
 
 }
 .text3{
@@ -320,7 +321,7 @@ span[class^="jian"]{
     width: 194px;
     height: 22px;
     margin-top: 15px;
-    margin-right: 386px;
+    
     margin-left: 20px;
 }
 .text6{
@@ -346,7 +347,7 @@ span[class^="jian"]{
     margin-left: 20px;
     margin-top: 25px;
     margin-bottom: 41px;
-    margin-right: 426px;
+   
     font-size: 19px;
     color: #FFFFFF;
     text-align: center;
@@ -357,21 +358,29 @@ hr{
     height: 1px;
     margin-top: 37px;
     width: 100%;
+    border-left: 0;
+    border-right: 0 ;
     max-width: 1200px;
+   
 }
 .info{
-    width: 1180px;
+    width: 100%;
+    max-width: 1180px;
     height: fit-content;
     align-items: center;
     color: #666666;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+
     
 
 }
 .text8{
-    width: 1180px;
+    width: 100%;
+    max-width: 1180px;
     height: 32px;
     align-items: center;
     margin-top: 20px;
@@ -379,13 +388,15 @@ hr{
     font-size: 16px;
     font-weight: bold;
     color: #666666;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-left: auto;
     margin-right: auto;
-    
 
 }
 .address{
-    width: 1180px;
+    width: 100%;
+    max-width: 1180px;
     height: 24px;
     align-items: center;
     margin-top: 0px;
@@ -393,10 +404,13 @@ hr{
     color: #666666;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
     
 }
 .text9{
-    width: 1180PX;
+    width: 100%;
+    max-width: 1180px;
     height: 32px;
     align-items: center;
     margin-top: 20px;
@@ -406,12 +420,15 @@ hr{
     color: #666666;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
    
     
 
 }
 .transport{
-    width: 1180px;
+    width: 100%;
+    max-width: 1180px;
     height: 48px;
     align-items: center;
     margin-top: 0px;
@@ -420,9 +437,11 @@ hr{
     margin-bottom: 120px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
     
 }
-@media(max-width:1024px) {
+@media(max-width:1200px) {
 
     body{ 
         width: 100%;
@@ -431,94 +450,109 @@ hr{
         
     }
     .frame{
-        max-width: 1024px;
+        
         width: 100%;
         margin-left: 0;
         margin-right: 0;
     }
     .headline{
-        width: 1009px;
-        margin-left: 0;
-        margin-right: 0;
+        width: 920px;
+       
        
     }
     .topinfo{
         width: 100%;
-        max-width: 994px;
+        max-width: 920px;
        
        
         display: flex;
     }
     .top{
-        max-width: 1024px;
+        max-width: 920px;
     }
-    #right{
+    
+    .photo{
         
+        height: 350px;
+        max-width: 510px;
+        width: 100%;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .div{
+        width: 510px;
+    }
+    .dote{
+        width: 510px;
+    }
+
+    #right{
+        padding-left: 0;
         max-width: 420px;
-        margin-left: 15px;
-        margin-right: 15px;
+        min-width: 400px;
+        margin-left: 10px;
+        
     }
     .name{
-        max-width: 420px;
+        max-width: 400px;
     }
     .place{
-        max-width: 420px;
+        max-width: 400px;
     }
     .booking{
-        max-width: 420px;
+        max-width: 400px;
+        
     }
     .text{
-        max-width: 400px;
-        margin-right: 0;
-     
+        width: 100px;
+        margin-right: 10;
+        
     }
     .text1{
-        max-width: 400px;
+        max-width: 380px;
+        min-width: 350px;
+        height: fit-content;
     }
     .insert{
-        margin-right: auto;
+        margin-right: 0;
     }
     .choose{
-        margin-right: auto;
+        margin-right: 0;
     }
     .cost{
-        margin-right: auto;
+        margin-right: 0;
     }
     .btn3{
-        margin-right: auto;
+        margin-right: 0;
     }
     hr{
-        max-width: 1012px;
+        width: 100%;
+        max-width: 918px;
     }
     .info{
-        width: 996px;
-        margin-left: 10px;
-        margin-right: 10px;
+        max-width: 900px;
+      
 
     }
     .text8{
         width: 100%;
-        max-width: 996px;
-        margin-left: 10px;
-        margin-right: 10px;
+        max-width: 900px;
+       
     }
     .address{
         width: 100%;
-        max-width: 996px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
+        max-width: 900px;
+    }  
     .text9{
         width: 100%;
-        max-width: 996px;
-        margin-left: 10px;
-        margin-right: 10px;
+        max-width: 900px;
+       
     }
     .transport{
         width: 100%;
-        max-width: 996px;
-        margin-left: 10px;
-        margin-right: 10px;
+        max-width: 900px;
+       
         height: fit-content;
     }
 }
@@ -535,18 +569,18 @@ hr{
         margin: 0;
     }
     .headline{
-        max-width: 910px;
+        max-width: 600px;
     }
     .top{
         max-width: 920px;
-        width: 100%;
+        
     }
     .desktop-menu{
         width: 84px;
     }
     .topinfo{
-        width: 100%;
-        max-width: 920px;
+      
+        max-width: 600px;
         margin-right: 0px;
         display: grid;
         text-align: center;
@@ -578,8 +612,7 @@ hr{
         grid-row-start: 3;
         grid-row-end: 4;
 
-        margin-left: auto;
-        margin-right: auto;
+        
         
 
     }
@@ -619,42 +652,41 @@ hr{
         margin-right: 126px;
     }
     .btn3{
-        margin-right: 166px;
+        margin-right: 226px;
     }
     hr{ 
         height: 1px;
-        width: 100%;
-        max-width: 750px;
+        max-width: 600px;
         margin-top: 450px;
         
     }
     .info{
-        width: 750px;
+        width: 600px;
         margin-left: auto;
         margin-right: auto;
 
     }
     .text8{
-        width: 100%;
-        max-width: 750px;
+        
+        max-width: 600px;
         margin-left: auto;
         margin-right: auto;
     }
     .address{
-        width: 100%;
-        max-width: 750px;
+       
+        max-width: 600px;
         margin-left: auto;
         margin-right: auto;
     }
     .text9{
-        width: 100%;
-        max-width: 750px;
+        
+        max-width: 600px;
         margin-left: auto;
         margin-right: auto;
     }
     .transport{
-        width: 100%;
-        max-width: 750px;
+       
+        max-width: 600px;
         margin-left: auto;
         margin-right: auto;
         height: fit-content;
@@ -676,22 +708,20 @@ hr{
     }
     .frame{
         width: 100%;
-        
         margin: 0;
     }
     .headline{
         width: 360px;
     }
     .top{
-        max-width: 600px;
-        width: 100%;
+        max-width: 360px;
+        
     }
     .desktop-menu{
         width: 84px;
     }
     .topinfo{
-        width: 100%;
-        max-width: 600px;
+        max-width: 360px;
         margin-right: 0px;
         display: grid;
         text-align: center;
@@ -715,7 +745,9 @@ hr{
         width: 360px;
     }
     #right{
-        width: 340px;
+        max-width: 360px;
+        min-width: 320px;
+        
         height: 390px;
         grid-row-start: 2;
         grid-row-end: 8;
@@ -725,7 +757,7 @@ hr{
     .name{
         grid-row-start: 3;
         grid-row-end: 4;
-        width: 340px;
+        max-width: 340px;
         height: fit-content;
         margin-left: auto;
         margin-right: auto;
@@ -735,7 +767,7 @@ hr{
     .place{
         grid-row-start: 5;
         grid-row-end: 6;
-        width: 340px;
+        max-width: 340px;
         height: 22px;
         margin-left: auto;
         margin-right: auto;
@@ -743,10 +775,11 @@ hr{
     .booking{
         grid-row-start: 7;
         grid-row-end: 8;
-        width: 340px;
+        max-width: 340px;
         height: 300px;
         margin-left: auto;
         margin-right: auto;
+       
         margin-bottom: 0px;
     }
     .text{
@@ -755,17 +788,17 @@ hr{
 
     }
     .text1{
-        width: 300px;
+        min-width: 300px;
         height: 48px;
     }
     .insert{
-        margin-right: 41px;
+        margin-right: 0px;
     }
     .choose{
-        margin-right: 63px;
+        margin-right: 0px;
     }
     .cost{
-        margin-right: 126px;
+        margin-right: 0px;
     }
     .btn3{
         margin-right: 166px;
@@ -776,7 +809,7 @@ hr{
         margin-top: 357px;
     }
     .info{
-        width: 330px;
+        max-width: 330px;
         height: fit-content;
         margin-left: auto;
         margin-right: auto;
@@ -800,7 +833,7 @@ hr{
         margin-right: auto;
     }
     .transport{
-        width: 330px;
+       max- width: 330px;
         height: fit-content;
         margin-left: auto;
         margin-right: auto;
@@ -810,4 +843,159 @@ hr{
     }
     
 
+}
+@media (max-width:360px) {
+    
+    body{
+        
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        
+    }
+    .frame{
+        width: 100%;
+        margin: 0;
+    }
+    .headline{
+        width: 320px;
+    }
+    .top{
+        max-width: 320px;
+        
+    }
+    .desktop-menu{
+        width: 84px;
+    }
+    .topinfo{
+        max-width: 320px;
+        margin-right: 0px;
+        display: grid;
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 350px 20px 33px 15px 22px 20px 300px;
+    }
+    .photo{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        height: 350px;
+        max-width: 320px;
+        width: 100%;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .div{
+        width: 320px;
+    }
+    .dote{
+        width: 320px;
+    }
+    #right{
+        max-width: 320px;
+        min-width: 280px;
+        
+        height: 390px;
+        grid-row-start: 2;
+        grid-row-end: 8;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .name{
+        grid-row-start: 3;
+        grid-row-end: 4;
+        max-width: 280px;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        
+
+    }
+    .place{
+        grid-row-start: 5;
+        grid-row-end: 6;
+        max-width: 280px;
+        height: 22px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .booking{
+        grid-row-start: 7;
+        grid-row-end: 8;
+        max-width: 280px;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+       
+        margin-bottom: 0px;
+    }
+    .text{
+        width: 260px;
+        height: 22px;
+
+    }
+    .text1{
+        max-width: 260px;
+        min-width: 240px;
+        height: 48px;
+    }
+    .insert{
+       width: 260px;
+       
+    }
+    .text2{
+        min-width: 81px;
+    }
+    .date{
+        max-width: 170px;
+        margin-right: 5px;
+    }
+   
+    .choose{
+        margin-right: 0px;
+    }
+    .cost{
+        margin-right: 0px;
+    }
+    .btn3{
+       margin-right: 106px;
+    }
+    hr{ 
+        height: 1px;
+        width: 280px;
+        margin-top: 357px;
+    }
+    .info{
+        max-width: 280px;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .text8{
+        width: 280px;
+        height: 32px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .address{
+        width: 280px;
+        height: 24px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .text9{
+        width: 280px;
+        height: 32px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .transport{
+        max-width: 280px;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer{
+        max-width: 360px;
+    }
 }
