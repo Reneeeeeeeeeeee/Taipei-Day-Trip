@@ -473,7 +473,7 @@ hr{
     
     .photo{
         
-        height: 350px;
+        height: 406px;
         max-width: 510px;
         width: 100%;
         align-items: center;
@@ -833,7 +833,7 @@ hr{
         margin-right: auto;
     }
     .transport{
-       max- width: 330px;
+       max-width: 330px;
         height: fit-content;
         margin-left: auto;
         margin-right: auto;
