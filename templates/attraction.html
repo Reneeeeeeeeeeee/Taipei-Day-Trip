@@ -18,10 +18,45 @@
                 <div class="left">台北一日遊</div>
                 <div class="desktop-menu">
                     <div class="item1">預定行程</div>
-                    <div class="item2">登入/註冊</div>
+                    <div class="item2" id="item2">登入/註冊</div>
+                    <div class="item3" id="item3">登出系統</div>
                 </div>
             </div>
         </div>
+        <div class="signin_back" id="signin_back">
+            <div class="signin" id="signin">
+                <div class="signtext" id="signtext">登入會員帳號
+                    <div class="signin_close">
+                    <span><a id="closeBtn" href="javascript:void(0)">&#x2715;</a></span>
+                    </div>
+                </div>
+                <form class="form1">
+                    <input type="text" class="enter_email" id="enter_email" name="enter_email" placeholder="輸入電子信箱"/>
+                    <input type="text" class="enter_pwd" id="enter_pwd" name="enter_pwd" placeholder="輸入密碼"/>
+                    <button class="signin_btn" id="signin_btn" type="submit">登入帳戶</button>
+                    <div class="signin_error" id="signin_error"></div>
+                    <a class="signintext1" id="signintext1">還沒有帳戶？點此註冊</a>
+                </form>
+            </div>
+        </div>
+        <div class="signup_back" id="signup_back">
+            <div class="signup" id="signup">
+                <div class="signuptext" id="signuptext">註冊會員帳號
+                    <div class="signup_close">
+                    <span><a id="closeBtn1" href="javascript:void(0)">&#x2715;</a></span>
+                    </div>
+                </div>
+                <form class="form" method="POST">
+                    <input type="text" class="signup_name" id="signup_name" name="signup_name" placeholder="輸入姓名"/>
+                    <input type="text" class="signup_email" id="signup_email" name="signup_email" placeholder="輸入電子郵件"/>
+                    <input type="text" class="signup_pwd" id="signup_pwd" name="signup_pwd" placeholder="輸入密碼"/>
+                    <button class="signup_btn" id="signup_btn" type="submit">註冊新帳戶</button>
+                    <div class="signup_error" id="signup_error"></div>
+                    <a class="signuptext1" id="signuptext1">已經有帳戶了？點此登入</a>
+                </form>
+            </div>
+        </div>
+        <div id="background" class="background"></div>
         <div class="top">
             <div class="topinfo">
                 <div class="div">
