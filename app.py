@@ -1,12 +1,23 @@
 from flask import *
-from flask import Flask, request, json, jsonify
+from flask import Flask, request, json, jsonify, make_response
 from flask_mysqldb import MySQL,MySQLdb
 import mysql.connector
-conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website1",) 
+from mysql.connector import pooling
+import jwt
+import requests
+
+connectionpool= mysql.connector.pooling.MySQLConnectionPool(pool_name="mysqlpool",pool_reset_session=True,host="localhost",password="reneechen1203", user="root", database="website1",)
+conn=connectionpool.get_connection()
+print(connectionpool.pool_name)
+print(connectionpool.pool_size)
+#conn=mysql.connector.connect(host="localhost",password="reneechen1203", user="root", database="website",) 
 app=Flask(__name__ ,static_url_path='/Users/renee/Desktop/taipei-day-trip/static', )
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 app.config["JSON_SORT_KEYS"]=False
+app.config["JWT_SECRET_KEY"]='my_secret_key'
+app.secret_key="secret"
+app.config['JWT_TOKEN_LOCATION'] = ['cookies']
 
 # Pages
 @app.route("/")
@@ -107,9 +118,83 @@ def categories():
 	else:
 		return jsonify({"error":True, "message":"Sever Error"})
 
-#@app.route("api/user", methods=["POST"])
-#def register():
-	#if 'name' in request.form and 'username' in request.form and 'password' in request.form :
+@app.route("/api/user", methods=["POST"])
+def register():
+	print("fetched")
+	result=request.get_json()
+	name=result['signup_name']
+	email=result['signup_email']
+	password=result['signup_pwd']
+	if name != "" and email != "" and password !="":
+		cur= conn.cursor(dictionary=True)
+		cur.execute("SELECT*FROM user WHERE email=%s", (email,))
+		account= cur.fetchone()
+		print(account)
+		if account:
+			print("error")
+			return jsonify({"error":True, "message":"Member account already exists"})
+		else:
+			print("true")
+			cur.execute("INSERT INTO user(name,email,password) VALUE(%s,%s,%s)", (name,email,password))
+			conn.commit()
+			return jsonify({"ok":True})
+	else: 
+		return jsonify({"error": True, "message":"Please fill up the missing columns"})
+@app.route("/api/user/auth", methods=["GET", "PUT", "DELETE"])
+def current():
+	if request.method == "GET":
+		get_cookie= request.cookies.get("token")
+		print("get_cookie" ,get_cookie)
+		if get_cookie != None:
+			de_token= jwt.decode(
+				get_cookie,
+				app.config["JWT_SECRET_KEY"],
+				algorithms=['HS256'])
+			print("de_token",de_token)
+			return jsonify({"data": de_token})
+		else :
+			return jsonify({"data": "null"})
+	elif request.method == "PUT":
+		signin= request.get_json()
+		email= signin['enter_email']
+		password= signin['enter_pwd']
+		print(email,password)
+		cur= conn.cursor(dictionary=True)
+		cur.execute("SELECT*FROM user WHERE email=%s AND password=%s",(email, password))
+		account=cur.fetchone()
+		if account:
+			print(account)
+			id= account['id']
+			name= account['name']
+			payload_data={
+				"id": id,
+				"name": name,
+				"email": email,	
+			}
+			token= jwt.encode(
+				payload_data,
+				app.config["JWT_SECRET_KEY"])
+			print(token)
+			res= make_response(jsonify({"ok":True}))
+			res.set_cookie("token",token, max_age=604800, path="/",)
+			
+			return res
+		else:
+			return jsonify({
+				"error":True, "message" : "Incorrect email or password"
+			})
+	elif request.method == "DELETE":
+		theres= make_response(jsonify({"ok":True}))
+		theres.set_cookie("token"," ", expires=0)
+		return theres
+
+
+
+
+	
+
+
+
 
 
 app.run(port=3000, host="0.0.0.0")
