@@ -17,7 +17,7 @@
             <div class="headline">
                 <div class="left">台北一日遊</div>
                 <div class="desktop-menu">
-                    <div class="item1">預定行程</div>
+                    <div class="item1" id="item1">預定行程</div>
                     <div class="item2" id="item2">登入/註冊</div>
                     <div class="item3" id="item3">登出系統</div>
                 </div>
@@ -32,7 +32,7 @@
                 </div>
                 <form class="form1">
                     <input type="text" class="enter_email" id="enter_email" name="enter_email" placeholder="輸入電子信箱"/>
-                    <input type="text" class="enter_pwd" id="enter_pwd" name="enter_pwd" placeholder="輸入密碼"/>
+                    <input type="password" class="enter_pwd" id="enter_pwd" name="enter_pwd" placeholder="輸入密碼"/>
                     <button class="signin_btn" id="signin_btn" type="submit">登入帳戶</button>
                     <div class="signin_error" id="signin_error"></div>
                     <a class="signintext1" id="signintext1">還沒有帳戶？點此註冊</a>
@@ -49,7 +49,7 @@
                 <form class="form" method="POST">
                     <input type="text" class="signup_name" id="signup_name" name="signup_name" placeholder="輸入姓名"/>
                     <input type="text" class="signup_email" id="signup_email" name="signup_email" placeholder="輸入電子郵件"/>
-                    <input type="text" class="signup_pwd" id="signup_pwd" name="signup_pwd" placeholder="輸入密碼"/>
+                    <input type="password" class="signup_pwd" id="signup_pwd" name="signup_pwd" placeholder="輸入密碼"/>
                     <button class="signup_btn" id="signup_btn" type="submit">註冊新帳戶</button>
                     <div class="signup_error" id="signup_error"></div>
                     <a class="signuptext1" id="signuptext1">已經有帳戶了？點此登入</a>
@@ -73,7 +73,7 @@
                         <div class="text1">以此景點為中心的一日行程，帶您探索城市角落故事</div>
                         <div class="insert">
                             <div class="text2">選擇日期：</div>
-                            <input type="date" class="date"> 
+                            <input type="date" class="date" name="date"> 
                         </div>
                         <div class="choose">
                             <div class="text3">選擇時間：</div>
@@ -86,7 +86,7 @@
                             <div class="text6">導覽費用：</div>
                             <div class="text7" id="text7">新台幣 2000 元</div>
                         </div>
-                        <button class="btn3">開始預約行程</button>
+                        <button class="btn3" id="btn3">開始預約行程</button>
                     </div>
                 </div>
             </div>
