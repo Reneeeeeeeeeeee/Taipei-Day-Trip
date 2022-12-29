@@ -6,7 +6,7 @@ from mysql.connector import pooling
 import jwt
 import requests
 
-connectionpool= mysql.connector.pooling.MySQLConnectionPool(pool_name="mysqlpool",pool_reset_session=True,host="localhost",password="reneechen1203", user="root", database="website",)
+connectionpool= mysql.connector.pooling.MySQLConnectionPool(pool_name="mysqlpool",pool_reset_session=True,host="localhost",password="reneechen1203", user="root", database="website1",)
 conn=connectionpool.get_connection()
 print(connectionpool.pool_name)
 print(connectionpool.pool_size)
