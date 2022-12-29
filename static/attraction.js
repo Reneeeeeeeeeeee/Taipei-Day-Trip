@@ -15,6 +15,8 @@ btn2.addEventListener('click', function onClick1(event) {
     
 
 });
+
+
 console.log(window.location)
 fetch("/api" +window.location.pathname ,{
 })
@@ -261,3 +263,120 @@ const logout_btn= document.getElementById('item3')
 
         })
     });
+const booking_btn= document.getElementById('item1')
+booking_btn.addEventListener('click', event=>{
+    event.preventDefault();
+    console.log("booking_btn")
+    fetch("/api/user/auth",{
+        method:'GET',
+    }).then(res=>res.json())
+    .catch(error=>{
+        console.error('error',error)
+    })
+    .then(response =>{
+        console.log(response)
+        check_response=JSON.stringify(response)
+        if(check_response == JSON.stringify({"data": "null"})){
+            document.getElementById('item2').style.display='block';
+            document.getElementsByName('enter_email')[0].value="";
+            document.getElementsByName('enter_pwd')[0].value="";
+            document.getElementById('item3').style.display='none';
+            document.getElementById('signin_back').style.display='block';
+            document.getElementById('background').style.display= 'block';
+        }
+        else{
+            document.getElementById('item2').style.display='none';
+            document.getElementById('item3').style.display='block';
+            location.replace("http://18.221.31.109:3000/booking");
+        }
+
+    })
+});
+const start_booking= document.getElementById('btn3')
+
+
+start_booking.addEventListener('click', event=>{
+    event.preventDefault();
+    fetch("/api/user/auth",{
+        method:'GET',
+    }).then(res=>res.json())
+    .catch(error=>{
+        console.error('error',error)
+    })
+    .then(response =>{
+        console.log(response)
+        check_response=JSON.stringify(response)
+        if(check_response == JSON.stringify({"data": "null"})){
+            document.getElementById('item2').style.display='block';
+            document.getElementsByName('enter_email')[0].value="";
+            document.getElementsByName('enter_pwd')[0].value="";
+            document.getElementById('item3').style.display='none';
+            document.getElementById('signin_back').style.display='block';
+            document.getElementById('background').style.display= 'block';
+
+        }
+        else{
+            document.getElementById('item2').style.display='none';
+            document.getElementById('item3').style.display='block';
+            const attractionId= location.pathname.split("/attraction/")[1];
+            console.log(attractionId)
+            const date= document.getElementsByName('date')[0].value;
+            console.log(date)
+            const price= document.getElementById('text7').textContent.split(" ")[1];
+            console.log(price)
+            if(price == 2000){
+                const time= "morning"
+                const data={
+                    "attractionId": attractionId,
+                    "date": date,
+                    "time": time,
+                    "price": price
+                }
+                fetch("/api/booking",{
+                    method: 'POST',
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }).then(res => res.json())
+                .catch(error=>{
+                    console.error('error',error)
+                })
+                .then(response=>{
+                    console.log(response)
+                    logout_response=JSON.stringify(response)
+                    if (logout_response == JSON.stringify({"ok":true})){
+                        location.replace("http://18.221.31.109:3000/booking")
+                    }
+                })
+            }
+            else if(price == 2500){
+                const time1= "afternoon"
+                const data={
+                    "attractionId": attractionId,
+                    "date": date,
+                    "time": time1,
+                    "price": price
+                }
+                fetch("/api/booking",{
+                    method: 'POST',
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }).then(res => res.json())
+                .catch(error=>{
+                    console.error('error',error)
+                })
+                .then(response=>{
+                    console.log(response)
+                    logout_response=JSON.stringify(response)
+                    if (logout_response == JSON.stringify({"ok":true})){
+                        location.replace("http://18.221.31.109:3000/booking")
+                    }
+                })
+            }   
+        }
+
+    })
+})

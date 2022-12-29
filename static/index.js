@@ -602,6 +602,35 @@
 
         })
     });
+    const booking_btn= document.getElementById('item1')
+    booking_btn.addEventListener('click', event=>{
+        event.preventDefault();
+        console.log("booking_btn")
+        fetch("/api/user/auth",{
+            method:'GET',
+        }).then(res=>res.json())
+        .catch(error=>{
+            console.error('error',error)
+        })
+        .then(response =>{
+            console.log(response)
+            check_response=JSON.stringify(response)
+            if(check_response == JSON.stringify({"data": "null"})){
+                document.getElementById('item2').style.display='block';
+                document.getElementsByName('enter_email')[0].value="";
+                document.getElementsByName('enter_pwd')[0].value="";
+                document.getElementById('item3').style.display='none';
+                document.getElementById('signin_back').style.display='block';
+                document.getElementById('background').style.display= 'block';
+            }
+            else{
+                document.getElementById('item2').style.display='none';
+                document.getElementById('item3').style.display='block';
+                location.replace("http://18.221.31.109:3000/booking");
+            }
+
+        })
+    })
 
     
         

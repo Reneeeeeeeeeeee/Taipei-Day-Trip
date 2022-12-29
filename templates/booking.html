@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="UTF-8/">
+        <title>week1 assignment</title>
+        <link type="text/css" rel="stylesheet" href="/Users/renee/Desktop/taipei-day-trip/static/booking.css"/>
+        <style>
+            body{
+                margin-left: 0px;
+                margin-right: 0px;
+                }
+        </style>
+    </head>
+    <body id="body">
+        <div class="frame">
+            <div class="headline">
+                <div class="left">台北一日遊</div>
+                <div class="desktop-menu">
+                    <div class="item1" id="item1">預定行程</div>
+                    <div class="item2" id="item2">登入/註冊</div>
+                    <div class="item3" id="item3">登出系統</div>
+                </div>
+            </div>
+        </div>
+        <div class="signin_back" id="signin_back">
+            <div class="signin" id="signin">
+                <div class="signtext" id="signtext">登入會員帳號
+                    <div class="signin_close">
+                    <span><a id="closeBtn" href="javascript:void(0)">&#x2715;</a></span>
+                    </div>
+                </div>
+                <form class="form1">
+                    <input type="text" class="enter_email" id="enter_email" name="enter_email" placeholder="輸入電子信箱"/>
+                    <input type="password" class="enter_pwd" id="enter_pwd" name="enter_pwd" placeholder="輸入密碼"/>
+                    <button class="signin_btn" id="signin_btn" type="submit">登入帳戶</button>
+                    <div class="signin_error" id="signin_error"></div>
+                    <a class="signintext1" id="signintext1">還沒有帳戶？點此註冊</a>
+                </form>
+            </div>
+        </div>
+        <div class="signup_back" id="signup_back">
+            <div class="signup" id="signup">
+                <div class="signuptext" id="signuptext">註冊會員帳號
+                    <div class="signup_close">
+                    <span><a id="closeBtn1" href="javascript:void(0)">&#x2715;</a></span>
+                    </div>
+                </div>
+                <form class="form" method="POST">
+                    <input type="text" class="signup_name" id="signup_name" name="signup_name" placeholder="輸入姓名"/>
+                    <input type="text" class="signup_email" id="signup_email" name="signup_email" placeholder="輸入電子郵件"/>
+                    <input type="password" class="signup_pwd" id="signup_pwd" name="signup_pwd" placeholder="輸入密碼"/>
+                    <button class="signup_btn" id="signup_btn" type="submit">註冊新帳戶</button>
+                    <div class="signup_error" id="signup_error"></div>
+                    <a class="signuptext1" id="signuptext1">已經有帳戶了？點此登入</a>
+                </form>
+            </div>
+        </div>
+        <div id="background" class="background"></div>
+        <div class="no_booking" id="no_booking">
+            <div class="hello" id="hello"></div><br><br><br>
+            <div class="nocontent" id="nocontent">目前沒有任何待預訂的行程</div> 
+        </div>
+        <footer class="footer1" id="footer1">COPYRIGHT © 2022 台北一日遊</footer> 
+        
+        <div class="first_section" id="first_section">
+            <div class="intro" id="intro"></div>
+            <div class="booking1" id="booking1">
+                <img id="booking_photo" width="266px" height="200px">
+                <div id="the_booking" class="the_booking">
+                    <div id="booking_detail" class="booking_detail"></div><br><br>
+                    <span id="booking_span">日期：</span>
+                    <div id="booking_date" class="booking_date"></div><br><br>
+                    <span id="booking_span">時間：</span>
+                    <div id="booking_time" class="booking_time"></div><br><br>
+                    <span id="booking_span">費用：</span>
+                    <div id="booking_fee" class="booking_fee"></div><br><br>
+                    <span id="booking_span">地點：</span>
+                    <div id="booking_address" class="booking_address"></div><br>
+                </div>
+                <img src="https://cdn-icons-png.flaticon.com/512/484/484560.png" id="delete_icon">
+            </div>
+        </div>
+        <hr class="hr1" id="hr">
+        <div class="second_section" id="second_section">
+            <div id="contact_info" class="contact_info">您的聯絡資訊</div><br>
+            <label for="contact_name" class="name_label">聯絡姓名：
+            <input type="text" id="contact_name" name="contact_name"></label><br><br>
+            <label for="contact_email" class="email_label">連絡信箱：
+            <input type="text" id="contact_email" name="contact_email"></label><br><br>
+            <label for="phone" class="phone_label">手機號碼：
+            <input type="text" id="phone" name="phone"></label><br><br><br>
+            <div id="contact_alert" class="contact_alert">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</div><br><br>
+        </div>
+        <hr id="hr1" class="hr">
+        <div class="third_section" id="third_section">
+            <div id="payment" class="payment">信用卡付款資訊</div><br>
+            <label for="card" class="card_label">卡片號碼：
+            <input id="card" name="card" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="**** **** **** ****"></label><br><br>
+            <label for="card_expire" class="expire_label">過期時間：
+            <input id="card_expire" name="card_expire" type="tel" placeholder="MM / YY"></label><br><br>
+            <label for="cvv" class="cvv_label">驗證密碼：
+            <input id="cvv" name="cvv" type="tel" inputmode="numeric" maxlength="3" placeholder="CVV"></label><br><br>
+        </div>
+        <hr class="hr3" id="hr2">
+        <div class="fourth_section" id="fourth_section">
+            <div class="totalcost" id="totalcost"></div><br>
+            <div id="btnp"><button class="pay_btn" id="pay_btn">確認訂購並付款</button></div>
+        </div>  
+
+        <footer class="footer" id="footer">COPYRIGHT © 2022 台北一日遊</footer>
+        
+        <script src="/Users/renee/Desktop/taipei-day-trip/static/booking.js"defer></script>     
+    </body>
+</html>
