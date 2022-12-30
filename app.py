@@ -152,7 +152,7 @@ def current():
 				algorithms=['HS256'])
 			print("de_token",de_token)
 			return jsonify({"data": de_token})
-		else :
+		else:
 			return jsonify({"data": "null"})
 	elif request.method == "PUT":
 		signin= request.get_json()
@@ -187,6 +187,102 @@ def current():
 		theres= make_response(jsonify({"ok":True}))
 		theres.set_cookie("token"," ", expires=0)
 		return theres
+@app.route("/api/booking", methods=["GET","POST","DELETE"])
+def application():
+	if request.method == "POST":
+		get_cookie= request.cookies.get("token")
+		print("get_cookie" ,get_cookie)
+		if get_cookie != None:
+			info=request.get_json()
+			print(info)
+			attractionId= info['attractionId']
+			date= info['date']
+			time= info['time']
+			price= info['price']
+			if attractionId != " " and date != " " and time != "null" and price != " ": 
+				payload_booking={
+					"attractionId":attractionId,
+					"date":date,
+					"time":time,
+					"price":price,
+				}
+				booking_token= jwt.encode(
+					payload_booking,
+					app.config["JWT_SECRET_KEY"])
+				print(booking_token)
+				res= make_response(jsonify({"ok": True}))
+				res.set_cookie("booking_token", booking_token, max_age=604800, path="/",)
+				return res
+			elif attractionId == ' ' or date == ' ' or time == "null" or price == ' ':
+				return jsonify({"error": True, "message": "ERROR INPUT DETAIL"})
+		elif get_cookie == None:
+			return jsonify({"error":True, "message":"NOT LOGIN ERROR"})
+		else:
+			return jsonify({"error":True, "message":"SERVER ERROR"}),500
+
+	elif request.method == "GET":
+		get_cookie= request.cookies.get("booking_token")
+		print("get_cookie" ,get_cookie)
+		if get_cookie != None:
+			de_token= jwt.decode(
+				get_cookie,
+				app.config["JWT_SECRET_KEY"],
+				algorithms=['HS256'])
+			print("de_token",de_token)
+			Id=de_token['attractionId']
+			booking_date=de_token['date']
+			booking_time=de_token['time']
+			booking_price=de_token['price']
+			if booking_date != '' and booking_time != '' and booking_price != '':
+				cur= conn.cursor(dictionary=True)
+				cur.execute("SELECT*FROM data WHERE id=%s",(Id,))
+				attraction_data=cur.fetchall()
+				s1= [s['images'] for s in attraction_data]
+				x=0
+				i=0
+				for x in range (len(s1)):
+					json_s1=json.loads(s1[x])
+					attraction_data[x]['images']= json_s1
+					x=x+1
+					#print("attraction_data:" ,attraction_data)
+					id= attraction_data[0]['id']
+					name= attraction_data[0]['name']
+					address= attraction_data[0]['address']
+					image= attraction_data[0]['images'][0]
+					attraction_info={
+						"id":id,
+						"name":name,
+						"address":address,
+						"image":image,
+					}
+					token_data={
+						"date": booking_date,
+						"time": booking_time,
+						"price": int(booking_price),
+					}
+					#print(attraction_info)
+					#print(token_data)
+					return jsonify({"data":{"attraction": attraction_info,"date": booking_date,
+						"time": booking_time,
+						"price": int(booking_price),}})
+			else:
+				return jsonify({"error": True, "message": "ERROR INPUT DETAIL"})
+		else:
+			return jsonify({"data": "null"})
+	elif request.method == "DELETE":
+		get_cookie= request.cookies.get("booking_token")
+		print("get_cookie" ,get_cookie)
+		if get_cookie != None:
+			theres= make_response(jsonify({"ok":True}))
+			theres.set_cookie("booking_token"," ", expires=0)
+			return theres
+		elif get_cookie == None:
+			return jsonify({"error": True, "message": "USER NOT LOGIN ERROR"})
+
+
+		
+		
+
 
 
 
