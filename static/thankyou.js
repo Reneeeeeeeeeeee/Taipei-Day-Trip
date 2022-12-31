@@ -1,3 +1,16 @@
+fetch("api/booking", {
+    method:'DELETE',
+}).then(res=>res.json())
+.catch(error=>{
+    console.error('error',error)
+})
+.then(response=>{
+    console.log(response)
+    remove_response=JSON.stringify(response)
+    if(remove_response == JSON.stringify({"ok":true})){
+       console.log("booking_info_remove")
+    }
+})
 document.addEventListener("DOMContentLoaded", event =>{
     console.log("yes_check")
     event.preventDefault();
@@ -209,4 +222,6 @@ firstpage.addEventListener('click', event=>{
 let params= new URLSearchParams(document.location.search);
 let number= params.get("number")
 const orderno= document.getElementById('orderno').textContent="Order No. :"+ number;
+
+
 
