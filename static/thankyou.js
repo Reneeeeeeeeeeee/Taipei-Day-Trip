@@ -1,3 +1,28 @@
+document.addEventListener("DOMContentLoaded", event =>{
+    console.log("yes_check")
+    event.preventDefault();
+    fetch("/api/user/auth",{
+        method:'GET',
+    }).then(res=>res.json())
+    .catch(error=>{
+        console.error('error',error)
+    })
+    .then(response =>{
+        console.log(response)
+        check_response=JSON.stringify(response)
+        if(check_response == JSON.stringify({"data": "null"})){
+            document.getElementById('item2').style.display='block';
+            document.getElementsByName('enter_email')[0].value="";
+            document.getElementsByName('enter_pwd')[0].value="";
+            document.getElementById('item3').style.display='none';
+        }
+        else{
+            document.getElementById('item2').style.display='none';
+            document.getElementById('item3').style.display='block';
+        }
+
+    })
+});
 var signin_back= document.getElementById('signin_back');
 var background= document.getElementById('background');
 var item2= document.getElementById('item2');
@@ -184,3 +209,4 @@ firstpage.addEventListener('click', event=>{
 let params= new URLSearchParams(document.location.search);
 let number= params.get("number")
 const orderno= document.getElementById('orderno').textContent="Order No. :"+ number;
+
