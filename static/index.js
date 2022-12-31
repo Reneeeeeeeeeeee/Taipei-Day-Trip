@@ -493,12 +493,6 @@
         event.preventDefault();
         const formData= new FormData(form);
         const data= Object.fromEntries(formData);
-
-        let bb={
-            "prime":"pppppp",
-            "contact":data,
-        }
-        console.log(bb)
         fetch("/api/user", {
             method: 'POST',
             headers:{
