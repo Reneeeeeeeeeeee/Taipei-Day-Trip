@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="UTF-8/">
+        <title>week1 assignment</title>
+        <link type="text/css" rel="stylesheet" href="/Users/renee/Desktop/taipei-day-trip/static/thankyou.css"/>
+        <style>
+            body{
+                margin-left: 0px;
+                margin-right: 0px;
+                }
+        </style>
+    </head>
+    <body id="body">
+        <div class="frame">
+            <div class="headline">
+                <div class="left" id="left">台北一日遊</div>
+                <div class="desktop-menu">
+                    <div class="item1" id="item1">預定行程</div>
+                    <div class="item2" id="item2">登入/註冊</div>
+                    <div class="item3" id="item3">登出系統</div>
+                </div>
+            </div>
+        </div>
+        <div class="signin_back" id="signin_back">
+            <div class="signin" id="signin">
+                <div class="signtext" id="signtext">登入會員帳號
+                    <div class="signin_close">
+                    <span><a id="closeBtn" href="javascript:void(0)">&#x2715;</a></span>
+                    </div>
+                </div>
+                <form class="form1">
+                    <input type="text" class="enter_email" id="enter_email" name="enter_email" placeholder="輸入電子信箱"/>
+                    <input type="password" class="enter_pwd" id="enter_pwd" name="enter_pwd" placeholder="輸入密碼"/>
+                    <button class="signin_btn" id="signin_btn" type="submit">登入帳戶</button>
+                    <div class="signin_error" id="signin_error"></div>
+                    <a class="signintext1" id="signintext1">還沒有帳戶？點此註冊</a>
+                </form>
+            </div>
+        </div>
+        <div class="signup_back" id="signup_back">
+            <div class="signup" id="signup">
+                <div class="signuptext" id="signuptext">註冊會員帳號
+                    <div class="signup_close">
+                    <span><a id="closeBtn1" href="javascript:void(0)">&#x2715;</a></span>
+                    </div>
+                </div>
+                <form class="form" method="POST">
+                    <input type="text" class="signup_name" id="signup_name" name="signup_name" placeholder="輸入姓名"/>
+                    <input type="text" class="signup_email" id="signup_email" name="signup_email" placeholder="輸入電子郵件"/>
+                    <input type="password" class="signup_pwd" id="signup_pwd" name="signup_pwd" placeholder="輸入密碼"/>
+                    <button class="signup_btn" id="signup_btn" type="submit">註冊新帳戶</button>
+                    <div class="signup_error" id="signup_error"></div>
+                    <a class="signuptext1" id="signuptext1">已經有帳戶了？點此登入</a>
+                </form>
+            </div>
+        </div>
+        <div id="background" class="background"></div>
+        
+        <div class="no_booking" id="no_booking">
+            <img src="https://assets.website-files.com/6298aa17504c3df764a1fa64/6298aa17504c3d68dfa1fb6f_image-2-thank-you-marketing-template.svg" width="100px" height="100px" id="thankimg"><br>
+            <h1 class="hello" id="hello">Your Payment Is Done Successfully</h1>
+            <h2 class="nocontent" id="nocontent">Thanks for booking with us !</h2>
+            <h2 id="orderno"></h2>
+            <h2>If you have any question feel free to get in touch.</h2><br><br><br>
+        </div>
+        
+        <footer class="footer1" id="footer1">COPYRIGHT © 2022 台北一日遊</footer>
+        <script src="/Users/renee/Desktop/taipei-day-trip/static/thankyou.js"defer></script>     
+    
+    </body>
+</html>

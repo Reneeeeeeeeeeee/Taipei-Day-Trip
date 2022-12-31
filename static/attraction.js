@@ -379,4 +379,10 @@ start_booking.addEventListener('click', event=>{
         }
 
     })
-})
+});
+const firstpage= document.getElementById('left');
+firstpage.addEventListener('click', event=>{
+    event.preventDefault();
+    location.replace("http://18.221.31.109:3000/")
+});
+

@@ -485,15 +485,12 @@
             return false;
         })
 
-    //const form= document.getElementById('form');
-   
-  
+    
     const form= document.querySelector('.form');
     form.addEventListener('submit', event=>{
         event.preventDefault();
         const formData= new FormData(form);
         const data= Object.fromEntries(formData);
-        
         fetch("/api/user", {
             method: 'POST',
             headers:{
@@ -631,6 +628,7 @@
 
         })
     })
+   
 
     
         

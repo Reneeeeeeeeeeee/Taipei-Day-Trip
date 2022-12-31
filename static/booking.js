@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", event =>{
                 else if (check_response != JSON.stringify({"data": "null"})){
                     const data= response['data']
                     const attraction= response['data']['attraction']
+                    const id= attraction['id']
                     const exact_time= data['time']
                     if (exact_time == "morning") {
                         const appointment= "早上 9 點到下午 4 點"
@@ -145,7 +146,7 @@ delete_appointment.addEventListener('click', event=>{
         }
     })
 })
-const firstpage= document.querySelector('.left');
+const firstpage= document.getElementById('left');
 firstpage.addEventListener('click', event=>{
     event.preventDefault();
     location.replace("http://18.221.31.109:3000/")
@@ -301,7 +302,7 @@ const logout_btn= document.getElementById('item3')
 
         })
     });
-    const booking_btn= document.getElementById('item1')
+const booking_btn= document.getElementById('item1')
     booking_btn.addEventListener('click', event=>{
         event.preventDefault();
         console.log("booking_btn")
@@ -327,6 +328,174 @@ const logout_btn= document.getElementById('item3')
                 document.getElementById('item3').style.display='block';
                 location.replace("http://18.221.31.109:3000/booking");
             }
-    
+
         })
     });
+
+const submitButton= document.getElementById('pay_btn');
+const contact_form= document.querySelector('.contact_form');
+
+
+
+TPDirect.setupSDK(127106,"app_z4tLBdl9W2ssIixsqlTt2nA6yVQgqlvbqRaKVgXuVj6VUMShHbYwHj3VjXyV","sandbox")
+var fields = {
+    number:{
+        element: '#card_number',
+        placeholder:'**** **** **** ****'
+    },
+    expirationDate: {
+        element: document.getElementById('card_expiration_date'),
+        placeholder: 'MM / YY'
+    },
+    ccv: {
+        element: '#card_ccv',
+        placeholder: '後三碼'
+    }
+
+}
+TPDirect.card.setup({
+    fields: fields,
+    styles: {
+        'input': {
+            'color': 'gray'
+        },
+        'input.ccv': {
+            'font-size': '16px'
+        },
+        'input.expiration-date': {
+            'font-size': '16px'
+        },
+        'input.card-number': {
+             'font-size': '16px'
+        },       
+        ':focus': {
+             'color': 'black'
+        },        
+        '.valid': {
+            'color': 'green'
+        },
+        
+        '.invalid': {
+            'color': 'red'
+        },
+       
+    },
+    
+    isMaskCreditCardNumber: true,
+    maskCreditCardNumberRange: {
+        beginIndex: 6, 
+        endIndex: 11
+    }
+})
+
+TPDirect.card.onUpdate(function (update) {
+    update.canGetPrime === true
+    
+    if (update.canGetPrime) {
+    
+        submitButton.removeAttribute('disabled')
+    } else {
+        submitButton.setAttribute('disabled', true)
+    }
+                                            
+ 
+})
+submitButton.addEventListener('click' ,onSubmit)
+function onSubmit(event) {
+    event.preventDefault()
+
+   
+    const tappayStatus = TPDirect.card.getTappayFieldsStatus()
+
+    
+    if (tappayStatus.canGetPrime === false) {
+        alert('can not get prime')
+        return
+    }
+
+    // Get prime
+    TPDirect.card.getPrime((result) => {
+        if (result.status !== 0) {
+            alert('get prime error ' + result.msg)
+            return
+        }
+        //alert('get prime 成功，prime: ' + result.card.prime)
+        console.log(result.card.prime)
+        const prime= result.card.prime; 
+        let attraction_price= document.querySelector('.booking_fee').textContent;
+        const price= attraction_price.split(' ')[1];
+        
+        let attraction_name= document.querySelector('.booking_detail').textContent;
+        const name= attraction_name.split('台北一日遊：').pop();
+        const address= document.querySelector('.booking_address').textContent;
+        const image= document.getElementById('booking_photo').src;
+        
+        
+        
+
+        const formData2= new FormData(contact_form)
+        const contact= Object.fromEntries(formData2)
+        fetch("/api/booking",{
+            method:'GET',
+        }).then(res=>res.json())
+        .catch(error=>{
+            console.error('error',error)
+        })
+        .then(response =>{
+            console.log(response)
+            check_response=JSON.stringify(response)
+            const data= response['data']
+            const attraction= response['data']['attraction']
+            const id= attraction['id']
+            const time= data['time']
+            const date= data['date'] 
+            const post_body={
+                "prime": prime,
+                "order":{
+                    "price":price,
+                    "trip":{
+                        "attraction":{
+                            "id":id,
+                            "name":name,
+                            "address":address,
+                            "image":image
+                        },
+                        "date":date,
+                        "time":time 
+                    },
+                    "contact":contact
+                }
+            }
+            console.log(post_body)
+            fetch("api/order",{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify(post_body)
+            }).then(res=>res.json())
+            .catch(error=>{
+                console.error('error',error)
+            })
+            .then(response=>{
+                console.log(response)
+                payment_response=JSON.stringify(response)
+                const status= response['data']['payment']['status'];
+                const number= response['data']['number'];
+                if (status == 0 ){
+                    var url= new URL('http://18.221.31.109:3000/thankyou?');
+                    var search_params= url.searchParams;
+                    search_params.set('number',number);
+                    url.search= search_params.toString();
+                    var new_url= url.toString();
+                    console.log(new_url);
+                    location.replace(new_url)                 
+                }
+
+            
+            })
+
+        })
+        
+    })
+}

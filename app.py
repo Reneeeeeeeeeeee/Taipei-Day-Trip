@@ -3,8 +3,11 @@ from flask import Flask, request, json, jsonify, make_response
 from flask_mysqldb import MySQL,MySQLdb
 import mysql.connector
 from mysql.connector import pooling
+from datetime import datetime
 import jwt
+import tappay
 import requests
+from datetime import datetime,date
 
 connectionpool= mysql.connector.pooling.MySQLConnectionPool(pool_name="mysqlpool",pool_reset_session=True,host="localhost",password="reneechen1203", user="root", database="website1",)
 conn=connectionpool.get_connection()
@@ -278,6 +281,74 @@ def application():
 			return theres
 		elif get_cookie == None:
 			return jsonify({"error": True, "message": "USER NOT LOGIN ERROR"})
+@app.route("/api/order", methods=["POST"])
+def reservation():
+	get_cookie= request.cookies.get("token")
+	print("get_cookie" ,get_cookie)
+	if get_cookie != None:
+		appointment= request.get_json()
+		prime=appointment['prime']
+		contact=appointment['order']['contact']
+		phone=contact['phone']
+		name=contact['contact_name']
+		email=contact['contact_email']
+		price=appointment['order']['price']
+		if prime != ' ' and phone != ' ' and name != ' 'and email != ' ':
+			now= datetime.now()
+			day=str(date.today())
+			sec=str(now.microsecond)
+			order_number=day+sec
+			payURL = "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
+			payByPrime = {
+				"prime": prime,
+				"partner_key":
+				"partner_Gx47ZHkGIgqjYt3LF7tIjXFAdMKUW2p6xDs5GDPCStlBLCS7u6Bz4Cc1",
+				"merchant_id":
+				"reneechen1203_CTBC",
+				"order_number":order_number,
+				"details":"TapPay Test",
+				"amount":int(price),
+				"cardholder":{
+					"phone_number":phone,
+					"name":name,
+					"email":email
+				},
+				"remember":True
+			}
+			result= requests.post(payURL,headers={
+				"Content-Type":"application/json",
+				"x-api-key":"partner_Gx47ZHkGIgqjYt3LF7tIjXFAdMKUW2p6xDs5GDPCStlBLCS7u6Bz4Cc1"	
+			},data=json.dumps(payByPrime))
+			status=result.json()["status"]
+			if status == 0:
+				data={
+					"number":order_number,
+					"payment":{
+						"status":status,
+						"message":"付款成功"
+					}
+				}
+				return jsonify({"data":data})
+			else:
+				data1={
+					"number":order_number,
+					"payment":{
+						"status":status,
+						"message":"付款失敗"
+					}
+				}
+				return jsonify({"data":data1})
+		else:
+			return jsonify({"error":True, "message":"Please fill in the required information"})
+	elif get_cookie == None:
+		return jsonify({"error": True, "message":"Please login"})
+	else:
+		return jsonify({"error":True, "message":"SERVER ERROR"})
+@app.route("/api/order/<int:OrderNumber>", methods=["GET"])
+def order_info():
+	return
+
+		
 
 
 		
