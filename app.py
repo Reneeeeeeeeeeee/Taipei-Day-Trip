@@ -298,7 +298,7 @@ def reservation():
 		"merchant_id":
 		"reneechen1203_CTBC",
 		"order_number":now,
-		"detail":"TapPay Test",
+		"details":"TapPay Test",
 		"amount":int(price),
 		"cardholder":{
 			"phone_number":phone,
