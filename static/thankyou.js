@@ -1,11 +1,3 @@
-const firstpage= document.querySelector('.left');
-firstpage.addEventListener('click', event=>{
-    event.preventDefault();
-    location.replace("http://18.221.31.109:3000/")
-})
-
-
-
 var signin_back= document.getElementById('signin_back');
 var background= document.getElementById('background');
 var item2= document.getElementById('item2');
@@ -183,3 +175,12 @@ const booking_btn= document.getElementById('item1')
 
         })
     });
+const firstpage= document.getElementById('left');
+firstpage.addEventListener('click', event=>{
+    event.preventDefault();
+    location.replace("http://18.221.31.109:3000/")
+})
+
+let params= new URLSearchParams(document.location.search);
+let number= params.get("number")
+const orderno= document.getElementById('orderno').textContent="Order No. :"+ number;
