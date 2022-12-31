@@ -299,14 +299,19 @@ def reservation():
 		"reneechen1203_CTBC",
 		"order_number":now,
 		"detail":"TapPay Test",
-		"amount":price,
-		"cardholder":contact,
+		"amount":int(price),
+		"cardholder":{
+			"phone_number":phone,
+			"name":name,
+			"email":email
+		},
 		"remember":True
 	}
 	result= requests.post(payURL,headers={
 		"Content-Type":"application/json",
 		"x-api-key":"partner_Gx47ZHkGIgqjYt3LF7tIjXFAdMKUW2p6xDs5GDPCStlBLCS7u6Bz4Cc1"	
 	},data=json.dumps(payByPrime))
+	print(result.json()["status"])
 	
 	return jsonify({"ok":True})
 @app.route("/api/order/<int:OrderNumber>", methods=["GET"])
