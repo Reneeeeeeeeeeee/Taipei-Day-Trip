@@ -68,15 +68,15 @@
             <div class="booking1" id="booking1">
                 <img id="booking_photo" width="266px" height="200px">
                 <div id="the_booking" class="the_booking">
-                    <div id="booking_detail" class="booking_detail"></div><br><br>
-                    <span id="booking_span">日期：</span>
-                    <div id="booking_date" class="booking_date"></div><br><br>
-                    <span id="booking_span">時間：</span>
-                    <div id="booking_time" class="booking_time"></div><br><br>
-                    <span id="booking_span">費用：</span>
-                    <div id="booking_fee" class="booking_fee"></div><br><br>
-                    <span id="booking_span">地點：</span>
-                    <div id="booking_address" class="booking_address"></div><br>
+                <div id="booking_detail" class="booking_detail"></div><br><br>
+                <span id="booking_span">日期：</span>
+                <div id="booking_date" class="booking_date"></div><br><br>
+                <span id="booking_span">時間：</span>
+                <div id="booking_time" class="booking_time"></div><br><br>
+                <span id="booking_span">費用：</span>
+                <div id="booking_fee" class="booking_fee"></div><br><br>
+                <span id="booking_span">地點：</span>
+                <div id="booking_address" class="booking_address"></div><br>
                 </div>
                 <img src="https://cdn-icons-png.flaticon.com/512/484/484560.png" id="delete_icon">
             </div>
@@ -84,32 +84,38 @@
         <hr class="hr1" id="hr">
         <div class="second_section" id="second_section">
             <div id="contact_info" class="contact_info">您的聯絡資訊</div><br>
-            <label for="contact_name" class="name_label">聯絡姓名：
-            <input type="text" id="contact_name" name="contact_name"></label><br><br>
-            <label for="contact_email" class="email_label">連絡信箱：
-            <input type="text" id="contact_email" name="contact_email"></label><br><br>
-            <label for="phone" class="phone_label">手機號碼：
-            <input type="text" id="phone" name="phone"></label><br><br><br>
+            <form class="contact_form">
+                <label for="contact_name" class="name_label">聯絡姓名：
+                <input type="text" id="contact_name" name="contact_name"></label><br><br>
+                <label for="contact_email" class="email_label">連絡信箱：
+                <input type="text" id="contact_email" name="contact_email"></label><br><br>
+                <label for="phone" class="phone_label">手機號碼：
+                <input type="text" id="phone" name="phone"></label><br><br><br>
+            </form>
             <div id="contact_alert" class="contact_alert">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</div><br><br>
         </div>
         <hr id="hr1" class="hr">
         <div class="third_section" id="third_section">
-            <div id="payment" class="payment">信用卡付款資訊</div><br>
-            <label for="card" class="card_label">卡片號碼：
-            <input id="card" name="card" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="**** **** **** ****"></label><br><br>
-            <label for="card_expire" class="expire_label">過期時間：
-            <input id="card_expire" name="card_expire" type="tel" placeholder="MM / YY"></label><br><br>
-            <label for="cvv" class="cvv_label">驗證密碼：
-            <input id="cvv" name="cvv" type="tel" inputmode="numeric" maxlength="3" placeholder="CVV"></label><br><br>
+            <label class="label">信用卡付款資訊</label><br><br>
+            <label class="card_label" for="card_number">卡片號碼：</label>
+            <div class="tpfield" id="card_number" name="card_number"></div><br>
+            <label class="expire_label">過期時間：</label>
+            <div class="tpfield" id="card_expiration_date"></div><br>
+            <label class="cvv_label">驗證密碼：</label>
+            <div class="tpfield" id="card_ccv"></div>
         </div>
         <hr class="hr3" id="hr2">
         <div class="fourth_section" id="fourth_section">
             <div class="totalcost" id="totalcost"></div><br>
             <div id="btnp"><button class="pay_btn" id="pay_btn">確認訂購並付款</button></div>
         </div>  
-
+      
         <footer class="footer" id="footer">COPYRIGHT © 2022 台北一日遊</footer>
         
-        <script src="/Users/renee/Desktop/taipei-day-trip/static/booking.js"defer></script>     
+        <script src="/Users/renee/Desktop/taipei-day-trip/static/booking.js"defer></script>  
+        <script src="https://js.tappaysdk.com/tpdirect/v5.13.1"></script>
+         
+        
+       
     </body>
 </html>

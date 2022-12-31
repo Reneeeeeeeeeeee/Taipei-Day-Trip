@@ -7,17 +7,6 @@ body{
     display: grid;
     grid-template-rows: 1fr auto;
 }
-.footer{
-    display: flex;
-    background-color: #757575;  
-    font-size: 16px;
-    color: #FFFFFF;
-    justify-content: center;
-    align-items: center;
-    height: 104px;
-    margin-bottom: 0px;
-}
-
 .frame{
     display: flex;
     position: fixed;
@@ -393,277 +382,40 @@ body{
     display: none;
 
 }
-
 #no_booking{
     width: 980px;
-    height: 75px;
-    display: none;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 127px;
 
 }
-.hello{
-    font-size: 19px;
-    height: 20px;
-    font-weight: bold;
-    color: #666666;  
-  
-}
-.nocontent{
+h1{
     font-size: 16px;
-    height: 24px;
     font-weight: bold;
-    color: #666666;  
-    margin-bottom: 40px;
-     
+    font-style: medium;
+    color: #666666;
+}
+h2{
+    font-size: 16px;
+    font-weight: bold;
+    font-style: medium;
+    color: #666666;
 }
 #footer1{
-    display: none;
+    
     background-color: #757575;  
     font-size: 16px;
     color: #FFFFFF;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: auto;
+    height: 500px;
     margin-top: auto;
     margin-top: 0px;
     margin-bottom: 0px;
 }
-
-.first_section{
-    width: 980px;
-    height: 337px;
-    margin-top: 54px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0px;
-    
-}
-
-.intro{
-    font-size: 19px;
-    height: 20px;
-    font-weight: bold;
-    color: #666666;  
-    margin-bottom: 35px;
-    margin-top: 46px; 
-   
-
-}
-.booking1{
-    display: flex;
-    margin-top: 0;
-    margin-bottom: 40px;
-    
-
-}
-#delete_icon{
-    width: 30px;
-    height: 30px;
-    margin-left: auto;
-    margin-right: 0;
-   
-}
-#booking_photo{
-    object-fit: cover;
-    margin-right: 22px;
-
-}
-.booking_detail{
-    color: #448899;
-    font-size: 16px;
-    font-weight: bold;
-    width: fit-content;
-    height: 14px;
-}
-
-#booking_span{
-    color: #666666;
-    font-size: 16px;
-    font-weight: bold;
-}
-.booking_date{
-    color: #666666;
-    font-size: 16px;
-    display: inline;
-}
-.booking_time{
-    color: #666666;
-    font-size: 16px;
-    display: inline;
-   
-}
-.booking_fee{
-    color: #666666;
-    font-size: 16px;
-    display: inline;
-}
-.booking_address{
-    color: #666666;
-    font-size: 16px;
-    display: inline;
-}
-hr{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 100%;
-    border-left: 0;
-    border-right: 0 ;
-    max-width: 1200px;
-    border-style: solid;
-    color: #E8E8E8;
-    
-    
-   
-}
-
-.second_section{
-    width: 980px;
-    height: 307px;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-.contact_info{
-    color: #666666;
-    font-size: 19px;
-    font-weight: bold;
-    margin-top: 24px;
-}
-input{
-    width: 190px;
-    height: 38px;
-    border-radius: 5px;
-    border-color: #E8E8E8;
-    border-width: 1px;
-    border-style: solid;
-    padding-left: 10px;
-}
-.name_label{
-    font-size: 16px;
-    color: #666666;
-    width: 280px;
-}
-.email_label{
-    font-size: 16px;
-    color: #666666;
-    width: 280px;
-}
-.phone_label{
-    font-size: 16px;
-    color: #666666;
-    width: 280px;
-}
-.contact_alert{
-    color: #666666;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 45px; 
-    
-}
-.third_section{
-    width: 980px;
-    height: 268px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 24px;
-}
-.tpfield{
-    font-size: 16px;
-    color: #666666;
-    width: 190px;
-    height: 38px;
-    border-radius: 5px;
-    border-color: #E8E8E8;
-    border-width: 1px;
-    border-style: solid;
-    padding-left: 10px;
-    display: flex;
-    flex-direction: row;
-   
-}
-.card_label{
-    float: left;
-    font-size: 16px;
-    color: #666666;
-    width: 85px;
-   
-    
-}
-.expire_label{
-    float: left;
-    font-size: 16px;
-    color: #666666;
-    width: 85px;
-}
-.cvv_label{
-    float: left;
-    font-size: 16px;
-    color: #666666;
-    width: 85px;
-}
-.label{
-    font-size: 19px;
-    color: #666666;
-    font-weight: bold;
-    
-}
-
-.hr3{
-    margin-top: 0px;
-    margin-bottom: 0px;
-    width: 100%;
-    border-left: 0;
-    border-right: 0 ;
-    max-width: 1200px;
-    color: #E8E8E8;
-    border-style: solid;
-}
-.fourth_section{
-    width: 980px;
-    height: 137px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 43px;
-    
-    
-}
-
-.totalcost{
-    height: 16px;
-    width: 157px;
-    color: #666666;
-    font-weight: bold;
-    font-size: 16px;
-    color: #666666;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: 0px;  
-    
-}
-
-#pay_btn{
-    width: 161px;
-    height: 34px;
-    background-color: #448899;
-    border-radius: 5px;
-    font-size: 19px;
-    color: #FFFFFF;
-    text-align: center;
-    vertical-align: middle;
-    border-width: 0px;
-    
-}
-#btnp{
-    width: 161px;
-    height: 34px;
-    margin-left: auto;
-    margin-right: 0px;  
-}
-@media (max-width:1024px) {
+@media (max-width:1024px){
     body{ 
         width: 100%;
         margin: 0;
@@ -684,22 +436,6 @@ input{
     #no_booking{
         width: 600px;
     }
-    .first_section{
-        width: 600px;
-    }
-    .second_section{
-        width: 600px;
-    }
-    .third_section{
-        width: 600px;
-    }
-    .fourth_section{
-        width: 600px;
-    }
-    hr{
-        max-width: 600px;
-    }
-    
 
 }
 @media(max-width:600px){
@@ -730,34 +466,4 @@ input{
     #no_booking{
         width: 320px;
     }
-    .first_section{
-        
-        width: 320px;
-    }
-    .booking1{
-        flex-direction: column;
-    }
-    .the_booking{
-        margin-top: 7px;
-    }
-    .hr1{
-        margin-top: 200px;
-    }
-    .second_section{
-        margin-top: 20px;
-        width: 320px;
-    }
-    .contact_info{
-        margin-top: 0;
-    }
-    .third_section{
-        width: 320px;
-    }
-    .fourth_section{
-        width: 320px;
-    }
-    hr{
-        max-width:320px;
-    }
-    
 }

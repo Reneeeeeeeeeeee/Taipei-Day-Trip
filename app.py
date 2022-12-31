@@ -3,10 +3,12 @@ from flask import Flask, request, json, jsonify, make_response
 from flask_mysqldb import MySQL,MySQLdb
 import mysql.connector
 from mysql.connector import pooling
+from datetime import datetime
 import jwt
+import tappay
 import requests
 
-connectionpool= mysql.connector.pooling.MySQLConnectionPool(pool_name="mysqlpool",pool_reset_session=True,host="localhost",password="reneechen1203", user="root", database="website1",)
+connectionpool= mysql.connector.pooling.MySQLConnectionPool(pool_name="mysqlpool",pool_reset_session=True,host="localhost",password="reneechen1203", user="root", database="website",)
 conn=connectionpool.get_connection()
 print(connectionpool.pool_name)
 print(connectionpool.pool_size)
@@ -278,6 +280,40 @@ def application():
 			return theres
 		elif get_cookie == None:
 			return jsonify({"error": True, "message": "USER NOT LOGIN ERROR"})
+@app.route("/api/order", methods=["POST"])
+def reservation():
+	appointment= request.get_json()
+	contact=appointment['order']['contact']
+	prime=appointment['prime']
+	phone=contact['phone']
+	name=contact['contact_name']
+	email=contact['contact_email']
+	price=appointment['order']['price']
+	now= datetime.now()
+	payURL = "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
+	payByPrime = {
+		"prime": prime,
+		"partner_key":
+		"partner_Gx47ZHkGIgqjYt3LF7tIjXFAdMKUW2p6xDs5GDPCStlBLCS7u6Bz4Cc1",
+		"merchant_id":
+		"reneechen1203_CTBC",
+		"order_number":now,
+		"detail":"TapPay Test",
+		"amount":price,
+		"cardholder":contact,
+		"remember":True
+	}
+	result= request.post(payURL,headers={
+		"Content-Type":"application/json",
+		"x-api-key":"partner_Gx47ZHkGIgqjYt3LF7tIjXFAdMKUW2p6xDs5GDPCStlBLCS7u6Bz4Cc1"	
+	},data=json.dumps(payByPrime))
+	
+	return jsonify({"ok":True})
+@app.route("/api/order/<int:OrderNumber>", methods=["GET"])
+def order_info():
+	return
+
+		
 
 
 		
