@@ -303,7 +303,7 @@ def reservation():
 		"cardholder":contact,
 		"remember":True
 	}
-	result= request.post(payURL,headers={
+	result= requests.post(payURL,headers={
 		"Content-Type":"application/json",
 		"x-api-key":"partner_Gx47ZHkGIgqjYt3LF7tIjXFAdMKUW2p6xDs5GDPCStlBLCS7u6Bz4Cc1"	
 	},data=json.dumps(payByPrime))
