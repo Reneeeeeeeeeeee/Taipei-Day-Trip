@@ -183,8 +183,3 @@ const booking_btn= document.getElementById('item1')
 
         })
     });
-const firstpage= document.querySelector('.left');
-firstpage.addEventListener('click', event=>{
-    event.preventDefault();
-    location.replace("http://18.221.31.109:3000/")
-});

@@ -519,7 +519,18 @@ function onSubmit(event) {
             .then(response=>{
                 console.log(response)
                 payment_response=JSON.stringify(response)
-                console.log(post_body)
+                const status= response['data']['payment']['status'];
+                const number= response['data']['number'];
+                if (status == 0 ){
+                    var url= new URL('http://18.221.31.109:3000/thankyou?');
+                    var search_params= url.searchParams;
+                    search_params.set('number',number);
+                    url.search= search_params.toString();
+                    var new_url= url.toString();
+                    console.log(new_url);
+                    location.replace(new_url)                 
+                }
+
             
             })
 
