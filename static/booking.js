@@ -146,7 +146,7 @@ delete_appointment.addEventListener('click', event=>{
         }
     })
 })
-const firstpage= document.querySelector('.left');
+const firstpage= document.getElementById('left');
 firstpage.addEventListener('click', event=>{
     event.preventDefault();
     location.replace("http://18.221.31.109:3000/")
